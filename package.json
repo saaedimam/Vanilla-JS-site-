@@ -1,0 +1,8 @@
+{
+  "name": "vanilla-js-site",
+  "version": "1.0.0",
+  "description": "KTL static site",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
