@@ -1,66 +1,42 @@
-// Global interactions (nav toggle, year, forms)
-document.addEventListener("DOMContentLoaded", () => {
-  // Year
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
+// Enhanced menu toggle functionality
+function toggleMenu() {
+  const nav = document.getElementById('nav');
+  const toggle = document.querySelector('.menu-toggle');
+  const isOpen = nav.classList.contains('open');
 
-  // Mobile nav
-  const menuBtn = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".site-nav");
-  if (menuBtn && nav){
-    menuBtn.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      menuBtn.textContent = isOpen ? "Close" : "Menu";
-      
-      // Close menu when clicking nav links
-      if (isOpen) {
-        nav.addEventListener("click", (e) => {
-          if (e.target.matches("a")) {
-            nav.classList.remove("open");
-            menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.textContent = "Menu";
-          }
-        });
-      }
-    });
-    
-    // Close menu on escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && nav.classList.contains("open")) {
-        nav.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.textContent = "Menu";
-        menuBtn.focus();
-      }
-    });
+  if (isOpen) {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Menu';
+    document.body.style.overflow = '';
+  } else {
+    nav.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.textContent = 'Close';
+    document.body.style.overflow = 'hidden';
   }
+}
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  function observeReveals(){
-    document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
-  }
-
-  window.KTL = Object.assign(window.KTL || {}, { observeReveals, handleFormSubmit, initView });
-  observeReveals();
-});
-
-// Simple form handler that posts to a configurable endpoint or falls back to mailto
+// Enhanced form handler with better UX
 async function handleFormSubmit(e, {endpoint, mailto}){
   e.preventDefault();
   const form = e.target;
   const status = form.querySelector(".status");
+  const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+
   if (!validateForm(form, status)) return;
+
   const data = Object.fromEntries(new FormData(form).entries());
-  status.textContent = "Submitting…";
+
+  // Enhanced loading state
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting…";
+  }
+  status.textContent = "Submitting your request…";
+  status.style.background = "linear-gradient(135deg, #FEF3C7, #FDE68A)";
+  status.style.color = "#92400E";
+  status.style.border = "1px solid #F59E0B";
 
   try{
     if (endpoint){
@@ -70,52 +46,164 @@ async function handleFormSubmit(e, {endpoint, mailto}){
         body: JSON.stringify(data)
       });
       if (!res.ok) throw new Error("Request failed");
-      status.textContent = "Thanks! We’ll get back to you shortly.";
+
+      status.textContent = "✓ Success! We'll get back to you shortly.";
+      status.style.background = "linear-gradient(135deg, #D1FAE5, #A7F3D0)";
+      status.style.color = "#065F46";
+      status.style.border = "1px solid #10B981";
       form.reset();
     }else if (mailto){
-      const q = new URLSearchParams(data).toString();
-      location.href = `mailto:${mailto}?subject=Website%20Form&body=${q}`;
-      status.textContent = "Opening your email client…";
+      const subject = encodeURIComponent(`Website Form Submission - ${data.company || 'Contact'}`);
+      const body = encodeURIComponent(Object.entries(data).map(([k, v]) => `${k}: ${v}`).join('\n'));
+      location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
+
+      status.textContent = "✓ Opening your email client…";
+      status.style.background = "linear-gradient(135deg, #DBEAFE, #BFDBFE)";
+      status.style.color = "#1E40AF";
+      status.style.border = "1px solid #3B82F6";
       form.reset();
     }else{
-      status.textContent = "No endpoint configured. Please set one in the HTML data attributes.";
+      throw new Error("No endpoint configured");
     }
   }catch(err){
     console.error(err);
-    status.textContent = "There was an error. Please try again later.";
+    status.textContent = "⚠ Error submitting form. Please try again or contact us directly.";
+    status.style.background = "linear-gradient(135deg, #FEE2E2, #FECACA)";
+    status.style.color = "#991B1B";
+    status.style.border = "1px solid #EF4444";
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit";
+    }
   }
 }
 
 function validateForm(form, status){
-  const required = form.querySelectorAll('[required]');
-  for (const field of required){
+  const requiredFields = form.querySelectorAll("[required]");
+  for (const field of requiredFields){
     if (!field.value.trim()){
-      status.textContent = "Please complete required fields.";
+      const fieldName = field.name || field.getAttribute('placeholder') || 'required field';
+      status.textContent = `⚠ Please fill in ${fieldName}.`;
+      status.style.background = "linear-gradient(135deg, #FEE2E2, #FECACA)";
+      status.style.color = "#991B1B";
+      status.style.border = "1px solid #EF4444";
+      field.focus();
       return false;
     }
-  }
-  const emailField = form.querySelector('input[type="email"]');
-  if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)){
-    status.textContent = "Please enter a valid email.";
-    return false;
+    if (field.type === "email" && !field.value.includes("@")){
+      status.textContent = "⚠ Please enter a valid email address.";
+      status.style.background = "linear-gradient(135deg, #FEE2E2, #FECACA)";
+      status.style.color = "#991B1B";
+      status.style.border = "1px solid #EF4444";
+      field.focus();
+      return false;
+    }
   }
   return true;
 }
 
 function initView(route){
-  if(route === '/news'){
-    if(window.KTL && typeof KTL.loadNews === 'function'){
-      KTL.loadNews();
+  // Initialize forms for the current view
+  const forms = document.querySelectorAll("form");
+  forms.forEach(form => {
+    // Remove existing listeners
+    const newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
+
+    if(newForm.id === "rfq-form"){
+      newForm.addEventListener("submit", (e) => {
+        const endpoint = window.CONFIG?.RFQ_ENDPOINT;
+        const mailto = window.CONFIG?.RFQ_EMAIL || "info@ktlbd.com";
+        handleFormSubmit(e, {endpoint, mailto});
+      });
+    } else if(newForm.id === "contact-form"){
+      newForm.addEventListener("submit", (e) => {
+        const endpoint = window.CONFIG?.CONTACT_ENDPOINT;
+        const mailto = window.CONFIG?.CONTACT_EMAIL || "info@ktlbd.com";
+        handleFormSubmit(e, {endpoint, mailto});
+      });
+    } else if(newForm.id === "careers-form"){
+      newForm.addEventListener("submit", (e) => {
+        const endpoint = newForm.dataset.endpoint;
+        const mailto = newForm.dataset.mailto || "hr@ktlbd.com";
+        handleFormSubmit(e, {endpoint, mailto});
+      });
     }
-  }else if(route === '/contact'){
-    const form = document.getElementById('contact-form');
-    if(form){
-      form.addEventListener('submit', e => handleFormSubmit(e, {endpoint: CONFIG.CONTACT_ENDPOINT, mailto: CONFIG.CONTACT_EMAIL}));
-    }
-  }else if(route === '/rfq'){
-    const form = document.getElementById('rfq-form');
-    if(form){
-      form.addEventListener('submit', e => handleFormSubmit(e, {endpoint: CONFIG.RFQ_ENDPOINT, mailto: CONFIG.RFQ_EMAIL}));
-    }
+  });
+
+  // Load news if on news page
+  if(route === "/news" && typeof window.KTL.loadNews === "function"){
+    window.KTL.loadNews();
   }
 }
+
+// Enhanced scroll animations and interactions
+document.addEventListener("DOMContentLoaded", function(){
+  // Enhanced intersection observer with stagger effect
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 100); // Stagger animations
+      }
+    });
+  }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+
+  function observeReveals(){
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  }
+
+  // Menu toggle setup
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('nav');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+  }
+
+  // Close mobile menu when clicking nav links
+  if (nav) {
+    nav.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && nav.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (nav && nav.classList.contains('open') && 
+        !nav.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+      toggleMenu();
+    }
+  });
+
+  // Enhanced keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav && nav.classList.contains('open')) {
+      toggleMenu();
+    }
+  });
+
+  // Smooth scrolling for anchor links
+  document.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#/')) {
+      e.preventDefault();
+      const hash = e.target.getAttribute('href');
+      window.location.hash = hash;
+    }
+  });
+
+  // Initialize
+  window.KTL = Object.assign(window.KTL || {}, { 
+    observeReveals, 
+    handleFormSubmit, 
+    initView, 
+    toggleMenu 
+  });
+
+  observeReveals();
+});
