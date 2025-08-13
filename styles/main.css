@@ -407,6 +407,12 @@ a:hover, a:focus-visible {
   box-shadow: 0 8px 32px var(--shadow-lg);
   position: relative;
   overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hero::before {
