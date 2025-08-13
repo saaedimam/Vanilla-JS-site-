@@ -2,17 +2,8 @@
   "name": "vanilla-js-site",
   "version": "1.0.0",
   "description": "KTL static site",
+  "private": true,
   "scripts": {
-    "predev": "node build.js",
-    "dev": "next dev",
-    "prebuild": "node build.js",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@vercel/speed-insights": "^1.2.0",
-    "next": "^14.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "build": "node build.js"
   }
 }
