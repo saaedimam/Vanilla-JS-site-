@@ -13,14 +13,30 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  window.KTL = window.KTL || {};
+  window.KTL.observeReveals = () => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  };
+  window.KTL.observeReveals();
 });
 
 // Simple form handler that posts to a configurable endpoint or falls back to mailto
 async function handleFormSubmit(e, {endpoint, mailto}){
   e.preventDefault();
   const form = e.target;
-  const data = Object.fromEntries(new FormData(form).entries());
   const status = form.querySelector(".status");
+  if (!validateForm(form, status)) return;
+  const data = Object.fromEntries(new FormData(form).entries());
   status.textContent = "Submitting…";
 
   try{
@@ -45,5 +61,21 @@ async function handleFormSubmit(e, {endpoint, mailto}){
   }
 }
 
+function validateForm(form, status){
+  const required = form.querySelectorAll('[required]');
+  for (const field of required){
+    if (!field.value.trim()){
+      status.textContent = "Please complete required fields.";
+      return false;
+    }
+  }
+  const emailField = form.querySelector('input[type="email"]');
+  if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)){
+    status.textContent = "Please enter a valid email.";
+    return false;
+  }
+  return true;
+}
+
 // Expose helper
-window.KTL = { handleFormSubmit };
+window.KTL = Object.assign(window.KTL || {}, { handleFormSubmit });
