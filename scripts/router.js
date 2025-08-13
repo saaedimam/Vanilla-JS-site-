@@ -37,12 +37,12 @@ const meta = {
 async function loadView(route){
   const file = routes[route] || routes["/"];
   const target = document.getElementById("app");
-  target.classList.remove("show");
   target.innerHTML = '<div class="card">Loading…</div>';
   try{
     const res = await fetch(`./partials/${file}`, {cache: "no-cache"});
     const html = await res.text();
     target.innerHTML = html;
+    target.classList.remove("show");
     setMeta(route);
     window.scrollTo({top:0, behavior:"smooth"});
     if (window.KTL && typeof KTL.observeReveals === "function"){
