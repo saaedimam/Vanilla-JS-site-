@@ -13,6 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  window.KTL = window.KTL || {};
+  window.KTL.observeReveals = () => {
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  };
+  window.KTL.observeReveals();
 });
 
 // Simple form handler that posts to a configurable endpoint or falls back to mailto
@@ -63,4 +78,4 @@ function validateForm(form, status){
 }
 
 // Expose helper
-window.KTL = { handleFormSubmit };
+window.KTL = Object.assign(window.KTL || {}, { handleFormSubmit });
