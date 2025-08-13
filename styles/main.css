@@ -221,11 +221,11 @@ a:hover, a:focus-visible {
   justify-content: center;
   width: 52px;
   height: 52px;
-  background: linear-gradient(135deg, var(--primary), #A91B1B);
-  color: white;
+  background-image: url('./assets/icons/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: var(--radius-lg);
-  font-weight: 700;
-  font-size: var(--text-lg);
   box-shadow: 0 6px 20px rgba(139, 0, 0, 0.25);
   transition: all var(--duration-normal) var(--ease-spring);
 }
