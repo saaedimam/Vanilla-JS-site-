@@ -1,83 +1,203 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kattali Textile Ltd. — Export‑Ready Apparel Manufacturing (Knitwear, Uniforms, Woven, Schoolwear, Sportswear)</title>
+  <title>Kattali Textile Ltd. — Export‑Ready Apparel Manufacturing</title>
   <meta name="description" content="KTL is a Bangladesh-based, export‑oriented manufacturer with 12 lines and 850+ workers serving USA, Canada, and UK markets. Certified ISO 9001 and C‑TPAT.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="./styles/main.css">
-  <link rel="stylesheet" href="./styles/main.css">
-  <link rel="icon" href="./assets/icons/favicon.png">
-  <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/images/favicon.png">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
+  
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#/">
-        <span class="logo" aria-hidden="true"></span>
+    <div class="container">
+      <a class="brand" href="#home">
+        <span class="logo"></span>
         <span class="brand-text">Kattali Textile Ltd.</span>
       </a>
-
-      <!-- Desktop nav -->
-      <nav class="site-nav" aria-label="Primary navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#sustainability">Sustainability</a></li>
-          <li><a href="#clients">Clients</a></li>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#investors">Investors</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
       </nav>
-
-      <!-- Header Button (CTA / Menu) -->
-      <button id="menuBtn"
-              class="btn btn-primary menu-toggle"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileNav">
-        Menu
+      
+      <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="hamburger"></span>
       </button>
     </div>
-
-    <!-- Mobile panel -->
+    
     <nav id="mobileNav" class="mobile-nav" hidden>
       <a href="#about">About</a>
-      <a href="#sustainability">Sustainability</a>
-      <a href="#clients">Clients</a>
-      <a href="#impact">Impact</a>
-      <a href="#investors">Investors</a>
-      <a href="#careers">Careers</a>
+      <a href="#services">Services</a>
+      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
-      <a href="#rfq" class="btn btn-accent">Request Quote</a>
     </nav>
   </header>
 
-  <main id="main" class="container">
-    <div id="app" class="view"></div>
+  <main id="main">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Export-Ready Apparel Manufacturing</h1>
+        <p>Leading textile manufacturer with 12 production lines, 850+ skilled workers, serving USA, Canada, and UK markets with ISO 9001 and C-TPAT certifications.</p>
+        <a href="#contact" class="btn btn-primary">Get Quote</a>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section bg-paper">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <strong>12</strong>
+            <span>Production Lines</span>
+          </div>
+          <div class="stat-card">
+            <strong>850+</strong>
+            <span>Skilled Workers</span>
+          </div>
+          <div class="stat-card">
+            <strong>3</strong>
+            <span>Export Markets</span>
+          </div>
+          <div class="stat-card">
+            <strong>ISO 9001</strong>
+            <span>Certified</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>About KTL</h2>
+          <p class="section-subtitle">Leading textile manufacturer with a commitment to quality and ethics</p>
+        </div>
+        
+        <div class="grid cols-2">
+          <div>
+            <div class="placeholder-image bg-teal"></div>
+            <h3>Our Story</h3>
+            <p>Kattali Textile Ltd. is an export-oriented garment manufacturer based in Chattogram, Bangladesh. We focus on consistent quality, ethical production, and dependable delivery schedules for global brands.</p>
+          </div>
+          <div>
+            <div class="placeholder-image bg-rose"></div>
+            <h3>Our Mission</h3>
+            <p>We specialize in high-quality textile manufacturing with comprehensive services from design to delivery. Our state-of-the-art facility operates under strict quality control standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-paper">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Services</h2>
+          <p class="section-subtitle">Comprehensive manufacturing solutions for global brands</p>
+        </div>
+        
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="placeholder-image bg-amber"></div>
+            <h3>Knitwear</h3>
+            <p>High-quality knitted garments with precision and attention to detail.</p>
+          </div>
+          <div class="card">
+            <div class="placeholder-image bg-teal"></div>
+            <h3>Uniforms</h3>
+            <p>Professional uniforms and workwear with durable construction.</p>
+          </div>
+          <div class="card">
+            <div class="placeholder-image bg-rose"></div>
+            <h3>Sportswear</h3>
+            <p>Performance textiles with precise fit and technical specifications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Certifications</h2>
+          <p class="section-subtitle">Meeting international standards for quality and security</p>
+        </div>
+        
+        <div class="grid cols-2">
+          <div class="card">
+            <div class="placeholder-image bg-teal"></div>
+            <h3>ISO 9001</h3>
+            <p>Quality management system certification ensuring consistent quality in our manufacturing processes and customer satisfaction.</p>
+          </div>
+          <div class="card">
+            <div class="placeholder-image bg-amber"></div>
+            <h3>C-TPAT</h3>
+            <p>Customs-Trade Partnership Against Terrorism certification for secure supply chain management and trade compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-paper">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p class="section-subtitle">Get in touch for your textile manufacturing needs</p>
+        </div>
+        
+        <div class="grid cols-2">
+          <div>
+            <h3>Get in Touch</h3>
+            <p>Ready to discuss your textile manufacturing requirements? Our team is here to help you with quality solutions and reliable delivery.</p>
+            <div class="contact-info">
+              <p><strong>Email:</strong> info@ktlbd.com</p>
+              <p><strong>Location:</strong> Chattogram, Bangladesh</p>
+              <p><strong>Markets:</strong> USA, Canada, UK</p>
+            </div>
+          </div>
+          <div>
+            <form id="contact-form" class="form">
+              <h4>Request Quote</h4>
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required>
+              
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+              
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company">
+              
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+              
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <div class="status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        Kattali Textile Ltd. · Chattogram, Bangladesh · Exports to USA, Canada, UK
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2024 Kattali Textile Ltd. All rights reserved.</p>
+        <p class="footer-credit">Built by <strong>Saeed Imam</strong></p>
       </div>
-      <div class="footer-links">
-        <a href="#/privacy">Privacy</a>
-        <a href="#/terms">Terms</a>
-        <a href="#/contact">Contact</a>
-      </div>
-      <div class="copyright">© <span id="year"></span> KTL. All rights reserved. | Website by <a href="#" style="color: var(--accent);">Saeed Imam</a></div>
     </div>
   </footer>
 
-  <script src="./scripts/config.js" defer></script>
-  <script src="./scripts/api.js" defer></script>
-  <script src="./scripts/news.js" defer></script>
-  <script src="./scripts/router.js" defer></script>
-  <script src="./scripts/main.js" defer></script>
+  <script src="main.js"></script>
 </body>
 </html>
