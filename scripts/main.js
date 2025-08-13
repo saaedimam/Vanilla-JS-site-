@@ -155,19 +155,37 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
   }
 
-  // Menu toggle setup
-  const menuToggle = document.querySelector('.menu-toggle');
-  const nav = document.getElementById('nav');
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
 
-  if (menuToggle) {
-    menuToggle.addEventListener('click', toggleMenu);
-  }
+  const toggleNav = () => {
+    const open = mobileNav.hasAttribute('hidden') ? false : true;
+    if(open){
+      mobileNav.setAttribute('hidden','');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.setAttribute('aria-label','Open menu');
+    }else{
+      mobileNav.removeAttribute('hidden');
+      menuBtn.setAttribute('aria-expanded','true');
+      menuBtn.setAttribute('aria-label','Close menu');
+    }
+  };
 
-  // Close mobile menu when clicking nav links
-  if (nav) {
-    nav.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A' && nav.classList.contains('open')) {
-        toggleMenu();
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', toggleNav);
+
+    // Close on escape
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && !mobileNav.hasAttribute('hidden')) toggleNav();
+    });
+
+    // Close menu when clicking nav links
+    mobileNav.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        if (!mobileNav.hasAttribute('hidden')) {
+          toggleNav();
+        }
       }
     });
   }
