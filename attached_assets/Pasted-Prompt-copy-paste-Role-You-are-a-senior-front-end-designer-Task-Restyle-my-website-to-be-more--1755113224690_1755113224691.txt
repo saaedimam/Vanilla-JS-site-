@@ -1,0 +1,125 @@
+Prompt (copy–paste)
+
+Role: You are a senior front-end designer.
+Task: Restyle my website to be more colorful, stylish, and modern, and add a Header menu button. Keep everything responsive and accessible.
+
+Code to modify:
+[paste your HTML/CSS (and JS if any) here]
+
+Goals
+
+Apply a fresh, colorful theme (see palette below).
+
+Modern typography, larger spacing, smooth micro-interactions.
+
+Add a Header “Menu” button (desktop: CTA next to nav; mobile: toggles the nav).
+
+Keep semantics, SEO, and Lighthouse scores strong.
+
+Design Direction
+
+Style: modern, confident, editorial-clean (no heavy gradients).
+
+Use CSS variables for theme colors and spacing.
+
+Rounded corners (8–14px), subtle shadows, 1px borders at low opacity.
+
+Buttons: bold, high-contrast, clear hover/active states.
+
+Sections: more white space; max-width 1140px; comfortable line length.
+
+Color Palette (pick one and implement with variables):
+
+Vibrant Textile
+
+--primary: #8B0000 (deep red)
+
+--accent: #0EA5A5 (teal)
+
+--secondary: #FF6B2C (vivid orange)
+
+--bg: #FFFFFF, --paper: #F7F7F7, --ink: #1F2937
+
+Playful Modern
+
+--primary: #6C5CE7
+
+--accent: #00C2A8
+
+--secondary: #FFB703
+
+--bg: #FCFCFD, --paper: #F3F4F6, --ink: #111827
+
+Header Updates
+
+Add a right-aligned Menu/Contact CTA button in the header.
+
+Mobile: convert nav to an off-canvas/overlay; Menu button toggles it.
+
+Provide ARIA attributes (aria-expanded, aria-controls) and focus states.
+
+Typography
+
+Use a modern geometric sans (e.g., Inter, Plus Jakarta Sans).
+
+Set fluid type: clamp() for h1–h6; base 16px→18px on larger screens.
+
+Tighten letter-spacing on headings; generous line-height for body.
+
+Components to Refresh
+
+Header, nav, hero, buttons, cards, forms, footer badges.
+
+Add hover transitions (150–200ms), focus rings, and reduced-motion support.
+
+Accessibility & Performance
+
+Contrast ≥ 4.5:1 for text; dark mode optional via @media (prefers-color-scheme: dark).
+
+Minify CSS, avoid heavy libs, keep images responsive.
+
+Keep DOM structure; no breaking changes to IDs or data-hooks.
+
+Deliverables
+
+Updated HTML/CSS (and minimal JS for the menu toggle).
+
+CSS variables block with the chosen palette.
+
+Example markup for the Header Menu button.
+
+Short notes on what changed and why.
+
+Example Button Spec
+
+Label: “Menu” (desktop can be “Contact” or “Get Quote” if CTA).
+
+Styles: solid --primary background, white text, 12px radius, 14–16px padding, medium weight.
+
+Hover: elevate shadow, darken background by ~8%.
+
+Focus: 2px outline using --accent.
+
+Pro Tips (follow these)
+
+Keep classes stable; add new utility classes if needed.
+
+Use :root { --vars } and swap palettes by changing variables only.
+
+Prefer gap over margins in flex/grid layouts.
+
+Use clamp() for fluid spacing and type.
+
+Add prefers-reduced-motion to disable animations for sensitive users.
+
+Output format
+
+Start with a brief change log.
+
+Then provide full updated files in separate code blocks:
+
+index.html (only changed sections if large)
+
+styles.css (complete)
+
+menu.js (tiny toggle script)
