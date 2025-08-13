@@ -23,11 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.15 });
 
-  window.KTL = window.KTL || {};
-  window.KTL.observeReveals = () => {
+  function observeReveals(){
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
-  };
-  window.KTL.observeReveals();
+  }
+
+  window.KTL = Object.assign(window.KTL || {}, { observeReveals, handleFormSubmit, initView });
+  observeReveals();
 });
 
 // Simple form handler that posts to a configurable endpoint or falls back to mailto
@@ -79,5 +80,20 @@ function validateForm(form, status){
   return true;
 }
 
-// Expose helper
-window.KTL = Object.assign(window.KTL || {}, { handleFormSubmit });
+function initView(route){
+  if(route === '/news'){
+    if(window.KTL && typeof KTL.loadNews === 'function'){
+      KTL.loadNews();
+    }
+  }else if(route === '/contact'){
+    const form = document.getElementById('contact-form');
+    if(form){
+      form.addEventListener('submit', e => handleFormSubmit(e, {endpoint: CONFIG.CONTACT_ENDPOINT, mailto: CONFIG.CONTACT_EMAIL}));
+    }
+  }else if(route === '/rfq'){
+    const form = document.getElementById('rfq-form');
+    if(form){
+      form.addEventListener('submit', e => handleFormSubmit(e, {endpoint: CONFIG.RFQ_ENDPOINT, mailto: CONFIG.RFQ_EMAIL}));
+    }
+  }
+}

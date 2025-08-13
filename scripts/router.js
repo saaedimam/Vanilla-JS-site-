@@ -48,6 +48,9 @@ async function loadView(route){
     if (window.KTL && typeof KTL.observeReveals === "function"){
       KTL.observeReveals();
     }
+    if (window.KTL && typeof KTL.initView === "function"){
+      KTL.initView(route);
+    }
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         target.classList.add("show");
