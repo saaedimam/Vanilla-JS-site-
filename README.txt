@@ -33,3 +33,13 @@ Notes
 - Accessible and mobile-first. Passes core Lighthouse checks.
 - Easy to migrate later to a backend (replace form endpoints).
 - Update colors in CSS variables at the top of styles/main.css.
+
+Go-Live Checklist
+-----------------
+- Add images
+- Upload certification PDFs
+- Choose deploy host (e.g., Netlify, Vercel static, S3)
+- Set custom domain and HTTPS
+- Add analytics and goal conversions
+- Replace sitemap [DEPLOY_URL]
+- Add backend endpoints for forms
