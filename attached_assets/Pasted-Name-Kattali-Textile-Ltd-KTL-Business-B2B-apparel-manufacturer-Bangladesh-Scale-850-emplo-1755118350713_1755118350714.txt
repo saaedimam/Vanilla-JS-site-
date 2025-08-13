@@ -1,0 +1,202 @@
+Name: Kattali Textile Ltd. (KTL)
+
+Business: B2B apparel manufacturer (Bangladesh)
+
+Scale: 850+ employees, 12 production lines
+
+Core product types: knit & woven garments — t-shirts, jeans/denim, ladies tops
+
+Markets: export-focused — Canada & USA
+
+Certifications & compliance: ISO 9001, CTPAT (explicitly no WRAP and no ICTI in the current stack)
+
+Ops focus: on-time production, quality, and tech-enabled operations (you’re building StitchOS/TextileTrack internally)
+
+Brand/web stack: Next.js, Tailwind, Node.js, MongoDB; color scheme Dark Red + White + a soft third color (you’ve used #8B0000 and a soft teal like #0EA5A5)
+
+About KTL (website copy)
+
+Kattali Textile Ltd. is a Bangladesh-based apparel manufacturer serving global brands with reliable, compliant, and on-time production. With 12 production lines and 850+ team members, we specialize in t-shirts, denim/jeans, and ladies tops across knit and woven categories. We maintain ISO 9001 quality systems and CTPAT security standards, and we’re investing in real-time production visibility through our in-house tech initiative (StitchOS/TextileTrack).
+
+Capabilities (bullets for the site)
+
+Product categories: tees, denim bottoms, ladies tops (knit & woven)
+
+Compliance: ISO 9001 QMS, CTPAT supply-chain security (no WRAP/ICTI at present)
+
+Production scale: 12 lines, 850+ people
+
+Operations: IE & planning culture, line balancing, training center for operator upskilling
+
+Tech: rolling out RFID/real-time tracking (StitchOS/TextileTrack) to cut delays and improve target adherence
+
+Sustainability & Responsibility (copy)
+
+We build dependable products with a practical approach to sustainability: quality systems (ISO 9001), supply-chain security (CTPAT), operator training, and continuous improvement. As we modernize with StitchOS/TextileTrack, we’re reducing rework, preventing over-production, and improving energy and material efficiency line by line.
+
+Clients & Markets (short)
+
+We manufacture for export buyers in North America (Canada & USA). If you’re a brand or sourcing office looking for dependable capacity in Bangladesh, our team can quote quickly with IE-backed costing and realistic delivery schedules.
+
+CAREERS (main focus)
+Careers — Hero copy
+
+Build what the world wears.
+Join Kattali Textile Ltd. to grow your craft in a factory that values skill, discipline, and steady improvement. From sewing lines to planning and IT, we invest in people and promote from within.
+
+Why work at KTL
+
+Real training: Dedicated Training Center for new operators and upskilling
+
+Structured growth: Clear line-to-leader paths with IE & HR support
+
+Stable orders: Export programs to North America
+
+Modernization: Hands-on experience with RFID and real-time tracking (StitchOS/TextileTrack)
+
+Safety & compliance: ISO 9001, CTPAT
+
+Functions we hire for
+
+Production: Sewing Operators, Helpers, Line Chiefs, Supervisors, Floor In-Charge
+
+Quality: Inline QC, End-line QC, QA
+
+Industrial Engineering & Planning: IE analysts, capacity planning, SMV/time study
+
+Merchandising & Commercial: Order management, docs, logistics
+
+Store & Inventory: Raw material and finished goods control
+
+HR & Training: Recruitment, training delivery, performance support
+
+IT/Systems: ERP/RFID support, dashboards, networking
+
+How to apply
+
+Email CV and brief cover note to hr@ktlbd.com
+
+Subject line: Application – [Role] – [Your Name]
+
+Include: earliest start date, current/expected salary, location, and two references.
+
+Sample Job Posting (template)
+
+Title: Senior Line Supervisor — Knit/Woven
+Department: Production (Sewing)
+Location: Chattogram, Bangladesh
+About the role: Lead day-to-day sewing operations to hit hourly targets with safety and quality. Partner with IE and QA to maintain line balance and reduce DHU.
+Key responsibilities: target tracking, changeover readiness, skill matrix upkeep, escalation to IE/QA, 5S compliance.
+Requirements: 5+ years on high-mix lines, basic IE exposure (SMV/time study), line leadership.
+Benefits: competitive salary, overtime policy per law, training & growth pathways.
+Apply: hr@ktlbd.com
+
+Job Posting — JSON-LD (paste into page head)
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "Senior Line Supervisor — Knit/Woven",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "Kattali Textile Ltd."
+  },
+  "employmentType": "FULL_TIME",
+  "industry": "Apparel Manufacturing",
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BD",
+      "addressLocality": "Chattogram"
+    }
+  },
+  "description": "Lead sewing line operations to achieve hourly targets with quality and safety; collaborate with IE and QA; maintain line balance and training.",
+  "qualifications": "5+ years on knit/woven lines; basic IE exposure; leadership experience.",
+  "applicantLocationRequirements": { "@type": "Country", "name": "Bangladesh" },
+  "directApply": true,
+  "identifier": { "@type": "PropertyValue", "name": "KTL", "value": "SLS-2025-01" },
+  "datePosted": "2025-08-14"
+}
+</script>
+
+INVESTOR RELATIONS (main focus)
+
+Note: You’ve not shared revenue/EBITDA publicly in your notes, so the IR copy below is structured to be metrics-driven without numbers, and invites NDAs for a data room.
+
+Investor Overview (site copy)
+
+Kattali Textile Ltd. is a private apparel manufacturer in Bangladesh operating 12 production lines with 850+ employees and a steady export base in Canada and the USA. We run ISO 9001 quality systems and CTPAT supply-chain security. Our modernization roadmap includes factory-wide RFID and real-time production analytics via StitchOS/TextileTrack to improve planning accuracy, cut rework, and protect margins.
+
+Operating Highlights (publish safely)
+
+12 active lines; knit & woven (tees, denim, ladies tops)
+
+ISO 9001, CTPAT compliance; established export processes
+
+IE & Planning culture; Training Center for throughput and DHU improvement
+
+Digitalization roadmap (RFID + live dashboards)
+
+Governance & Policies
+
+Private company; board-led oversight
+
+Compliance: ISO 9001 QMS, CTPAT security
+
+Ethical hiring and worker training via HR Training Center
+
+Environmental & social policy aligned with buyer requirements
+
+What we share under NDA (Data Room Index)
+
+Factory profile (line map, capacity ladder, shift structure)
+
+Compliance certificates: ISO 9001, CTPAT (latest scans)
+
+12–24 month order mix and on-time delivery history
+
+DHU/rework trends and CAPA summaries
+
+IE files (SMV library snapshots, standard operation breakdown samples)
+
+Financial statements (last 3 years) & capex roadmap for digitalization
+
+Risk register and mitigation plans
+
+IR Contact (interim)
+
+Until you set a dedicated IR email, direct inquiries via the Contact form on the site or route to hr@ktlbd.com for triage to management.
+
+(When ready, create investors@ktlbd.com and I’ll update the copy.)
+
+Safe Harbor / Disclaimer (ready to paste)
+
+Information on this page may include forward-looking statements based on current assumptions and is subject to risks and uncertainties. Actual results may differ. Kattali Textile Ltd. undertakes no obligation to update forward-looking statements except as required by law.
+
+Certifications (for a simple card list)
+
+ISO 9001 — Quality Management System
+
+CTPAT — Customs Trade Partnership Against Terrorism
+
+(Not held at present: WRAP, ICTI)
+
+Contact (from your notes)
+
+HR / Careers: hr@ktlbd.com
+
+Location: Bangladesh (Chattogram/Chittagong for job postings)
+
+Brand & UI Tokens (dev handoff)
+:root{
+  --brand-red:#8B0000;   /* Primary */
+  --brand-white:#FFFFFF; /* Base */
+  --brand-accent:#0EA5A5;/* Soft teal accent (third color for eye comfort) */
+  --text:#222; --muted:#666; --paper:#f7f7f7; --radius:14px; --maxw:1100px;
+}
+
+Quick meta snippets
+
+Meta title: Kattali Textile Ltd. — Bangladesh Apparel Manufacturer (ISO 9001, CTPAT)
+Meta description: KTL is a Bangladesh-based apparel manufacturer with 12 production lines and 850+ employees, exporting knit & woven garments to North America. Careers and investor information inside.
