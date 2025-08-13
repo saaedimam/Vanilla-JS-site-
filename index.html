@@ -1,61 +1,82 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kattali Textile Ltd. — Export‑Ready Apparel Manufacturing (Knitwear, Uniforms, Woven, Schoolwear, Sportswear)</title>
-  <meta name="description" content="KTL is a Bangladesh-based, export‑oriented manufacturer with 12 lines and 850+ workers serving USA, Canada, and UK markets. Certified ISO 9001 and C‑TPAT.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="./styles/main.css">
-  <link rel="stylesheet" href="./styles/main.css">
-  <link rel="icon" href="./assets/icons/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KTL • StitchOS — Modern Vanilla Site</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Built by Saaed Imam • Vanilla JS -->
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <!-- Header -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#/">
-        <span class="logo" aria-hidden="true">KTL</span>
-        <span class="brand-text">Kattali Textile Ltd.</span>
+    <div class="container header-row">
+      <a class="brand" href="/">
+        <img src="/favicon.png" alt="Brand" class="brand-mark" />
+        <span class="brand-name">Kattali Textile Ltd</span>
       </a>
-      <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-      <nav id="nav" class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="#/">Home</a></li>
-          <li><a href="#/about">About</a></li>
-          <li><a href="#/sustainability">Sustainability</a></li>
-          <li><a href="#/certifications">Certifications</a></li>
-          <li><a href="#/clients">Clients</a></li>
-          <li><a href="#/impact">Impact</a></li>
-          <li><a href="#/investors">Investors</a></li>
-          <li><a href="#/careers">Careers</a></li>
-          <li><a href="#/news">News</a></li>
-          <li><a href="#/contact">Contact</a></li>
-          <li><a class="btn btn-rfq" href="#/rfq">Request a Quote</a></li>
-        </ul>
+
+      <!-- Desktop nav -->
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <!-- Icon-only menu button -->
+      <button id="menuBtn"
+              class="icon-btn"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobileNav">
+        <!-- Hamburger icon (pure HTML/CSS) -->
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
+
+    <!-- Mobile panel -->
+    <nav id="mobileNav" class="mobile-nav" hidden>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#contact" class="btn btn-accent">Get Quote</a>
+    </nav>
   </header>
 
-  <main id="main" class="container">
-    <div id="app" class="view"></div>
-  </main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Colorful, stylish, modern. <span class="badge">Vanilla JS</span></h1>
+      <p>Fast, accessible, and easy to maintain—built by Saaed Imam.</p>
+      <a class="btn btn-primary" href="#work">See Work</a>
+    </div>
+  </section>
+
+  <!-- Image cards with colorful background placeholders -->
+  <section class="section">
+    <div class="container grid">
+      <figure class="card img-cover bg-rose">
+        <figcaption>Factory Floor (add image later)</figcaption>
+      </figure>
+      <figure class="card img-cover bg-teal">
+        <figcaption>Quality Control (add image later)</figcaption>
+      </figure>
+      <figure class="card img-cover bg-amber">
+        <figcaption>Product Collage (add image later)</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        Kattali Textile Ltd. · Chattogram, Bangladesh · Exports to USA, Canada, UK
-      </div>
-      <div class="footer-links">
-        <a href="#/privacy">Privacy</a>
-        <a href="#/terms">Terms</a>
-        <a href="#/contact">Contact</a>
-      </div>
-      <div class="copyright">© <span id="year"></span> KTL. All rights reserved.</div>
+    <div class="container">
+      <p>© <span id="year"></span> KTL • StitchOS — Built by Saaed Imam</p>
     </div>
   </footer>
 
-  <script src="./scripts/router.js" defer></script>
-  <script src="./scripts/main.js" defer></script>
+  <script src="/main.js"></script>
 </body>
 </html>
