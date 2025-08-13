@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 async function handleFormSubmit(e, {endpoint, mailto}){
   e.preventDefault();
   const form = e.target;
-  const data = Object.fromEntries(new FormData(form).entries());
   const status = form.querySelector(".status");
+  if (!validateForm(form, status)) return;
+  const data = Object.fromEntries(new FormData(form).entries());
   status.textContent = "Submitting…";
 
   try{
@@ -43,6 +44,22 @@ async function handleFormSubmit(e, {endpoint, mailto}){
     console.error(err);
     status.textContent = "There was an error. Please try again later.";
   }
+}
+
+function validateForm(form, status){
+  const required = form.querySelectorAll('[required]');
+  for (const field of required){
+    if (!field.value.trim()){
+      status.textContent = "Please complete required fields.";
+      return false;
+    }
+  }
+  const emailField = form.querySelector('input[type="email"]');
+  if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)){
+    status.textContent = "Please enter a valid email.";
+    return false;
+  }
+  return true;
 }
 
 // Expose helper
