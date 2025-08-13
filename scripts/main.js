@@ -52,6 +52,8 @@ async function handleFormSubmit(e, {endpoint, mailto}){
     }else if (mailto){
       const q = new URLSearchParams(data).toString();
       location.href = `mailto:${mailto}?subject=Website%20Form&body=${q}`;
+      status.textContent = "Opening your email client…";
+      form.reset();
     }else{
       status.textContent = "No endpoint configured. Please set one in the HTML data attributes.";
     }
