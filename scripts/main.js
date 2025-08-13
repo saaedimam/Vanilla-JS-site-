@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.KTL = window.KTL || {};
   window.KTL.observeReveals = () => {
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
   };
   window.KTL.observeReveals();
 });
