@@ -16,12 +16,12 @@ const routes = {
 
 const meta = {
   "/": {
-    title: "KTL — Export‑Ready Apparel Manufacturer | Bangladesh",
-    description: "Bangladesh manufacturer with 12 lines and 850+ workers producing knitwear, uniforms, woven, schoolwear, sportswear for USA, Canada, UK. ISO 9001 & C‑TPAT."
+    title: "KTL — Export-Ready Apparel Manufacturer | Bangladesh",
+    description: "Bangladesh manufacturer with 12 lines and 850+ workers producing knitwear, uniforms, woven, schoolwear, sportswear for USA, Canada, UK. ISO 9001 & C-TPAT."
   },
   "/about": {title: "About KTL | Company Profile", description: "Company profile of Kattali Textile Ltd."},
   "/sustainability": {title: "KTL Sustainability | People, Planet, Compliance", description: "Sustainability at KTL covering people, planet, and compliance."},
-  "/certifications": {title: "KTL Certifications | ISO 9001, C‑TPAT", description: "Certifications including ISO 9001 and C‑TPAT."},
+  "/certifications": {title: "KTL Certifications | ISO 9001, C-TPAT", description: "Certifications including ISO 9001 and C-TPAT."},
   "/clients": {title: "KTL Clients | Sectors & Case Highlights", description: "Client sectors and highlights."},
   "/impact": {title: "KTL Impact | Case Studies & Achievements", description: "Case studies and achievements from KTL."},
   "/careers": {title: "KTL Careers | Open Roles", description: "Current job openings at KTL."},
@@ -41,7 +41,6 @@ async function loadView(route){
     const res = await fetch(`./partials/${file}`, {cache: "no-cache"});
     const html = await res.text();
     target.innerHTML = html;
-    target.classList.remove("show");
     setMeta(route);
     window.scrollTo({top:0, behavior:"smooth"});
     if (window.KTL && typeof KTL.observeReveals === "function"){
