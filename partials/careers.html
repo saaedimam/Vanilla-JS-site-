@@ -1,6 +1,6 @@
-<article>
+<article class="reveal">
   <h1>Careers</h1>
-  <p>Current openings: Senior Merchandiser, Merchandising Manager, Commercial Manager.</p>
+  <p>Current openings: Senior Merchandiser, Merchandising Manager, Commercial Manager. For roles and screening questions, see job detail pages in News or request via HR.</p>
   <p><a class="btn" href="#/contact">Send your CV</a> or use the form below.</p>
   <form class="form" id="careers-form" data-endpoint="" data-mailto="hr@ktlbd.com">
     <label>Role
@@ -17,11 +17,12 @@
     <label>Availability <input name="availability" placeholder="e.g., 2 weeks notice"></label>
     <label>Salary Expectation <input name="salary"></label>
     <label>Message <textarea name="message" rows="4"></textarea></label>
-    <small>File upload can be enabled via a simple backend later.</small>
+    <small>Attach CV via email after auto‑reply, or enable file upload in a future backend.</small>
     <button>Apply</button>
     <div class="status" aria-live="polite"></div>
   </form>
   <script>
+    // TODO set endpoint e.g., https://api.ktlbd.com/careers
     const f = document.getElementById('careers-form');
     f.addEventListener('submit', (e)=> KTL.handleFormSubmit(e, {endpoint: f.dataset.endpoint, mailto: f.dataset.mailto}));
   </script>
