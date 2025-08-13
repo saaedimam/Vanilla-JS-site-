@@ -1,6 +1,6 @@
 <article class="reveal">
   <h1>Request a Quote</h1>
-  <form class="form" id="rfq-form" data-endpoint="" data-mailto="commercial@ktlbd.com">
+  <form class="form" id="rfq-form">
     <label>Company <input name="company" required></label>
     <label>Contact Person <input name="name" required></label>
     <label>Email <input type="email" name="email" required></label>
@@ -22,9 +22,4 @@
     <button>Submit RFQ</button>
     <div class="status" aria-live="polite"></div>
   </form>
-  <script>
-    // TODO set endpoint e.g., https://api.ktlbd.com/rfq
-    const f3 = document.getElementById('rfq-form');
-    f3.addEventListener('submit', (e)=> KTL.handleFormSubmit(e, {endpoint: f3.dataset.endpoint, mailto: f3.dataset.mailto}));
-  </script>
 </article>
