@@ -1,6 +1,8 @@
 # KTL Vanilla JS Website
 
-Assumption: demo API and form endpoints use public services (`jsonplaceholder.typicode.com` and `httpbin.org`). Replace with real services for production.
+A professional website for Kattali Textile Ltd., showcasing our export-oriented apparel manufacturing capabilities.
+
+**Note:** Demo API and form endpoints use public services (`jsonplaceholder.typicode.com` and `httpbin.org`). Replace with real services for production.
 
 ## Setup
 
@@ -36,6 +38,17 @@ Assumption: demo API and form endpoints use public services (`jsonplaceholder.ty
 
 ## Notes
 
-- Accessible, responsive design meeting WCAG 2.1 AA guidelines.
+- Professional, accessible, responsive design meeting WCAG 2.1 AA guidelines.
 - Forms gracefully fall back to `mailto:` when endpoints are not set.
 - API errors are logged to the console and surfaced in the UI.
+- Built with modern web standards for optimal performance and user experience.
+
+
+
+## Credits
+
+Website developed by **Saeed Imam** for Kattali Textile Ltd.
+- Professional web development and design
+- Modern vanilla JavaScript implementation
+- Responsive and accessible user interface
+
