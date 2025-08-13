@@ -1,0 +1,29 @@
+<article>
+  <h1>Request a Quote</h1>
+  <form class="form" id="rfq-form" data-endpoint="" data-mailto="commercial@ktlbd.com">
+    <label>Company <input name="company" required></label>
+    <label>Contact Person <input name="name" required></label>
+    <label>Email <input type="email" name="email" required></label>
+    <label>Product Type
+      <select name="product" required>
+        <option value="">Select</option>
+        <option>Knitwear</option>
+        <option>Uniforms</option>
+        <option>Woven</option>
+        <option>Schoolwear</option>
+        <option>Sportswear</option>
+      </select>
+    </label>
+    <label>Target Quantity <input name="quantity" placeholder="e.g., 20,000 pcs" required></label>
+    <label>Fabric & Trims <textarea name="fabric" rows="3"></textarea></label>
+    <label>Target Lead Time <input name="leadtime" placeholder="e.g., 60 days"></label>
+    <label>Required Certifications <input name="certs" placeholder="e.g., ISO 9001, C-TPAT"></label>
+    <label>Specs Link or Notes <textarea name="notes" rows="3"></textarea></label>
+    <button>Submit RFQ</button>
+    <div class="status" aria-live="polite"></div>
+  </form>
+  <script>
+    const f3 = document.getElementById('rfq-form');
+    f3.addEventListener('submit', (e)=> KTL.handleFormSubmit(e, {endpoint: f3.dataset.endpoint, mailto: f3.dataset.mailto}));
+  </script>
+</article>
