@@ -125,7 +125,7 @@ class KTLWebsite {
       );
       
       // Open email client
-      window.location.href = `mailto:info@ktlbd.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:hr@ktlbd.com?subject=${subject}&body=${body}`;
       
       this.showStatus(status, '✓ Success! Your email client will open shortly.', 'success');
       form.reset();
