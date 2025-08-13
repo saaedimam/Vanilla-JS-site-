@@ -1,89 +1,98 @@
-// Lightweight hash router that loads HTML partials into #app
-const routes = {
-  "/": "home.html",
-  "/about": "about.html",
-  "/sustainability": "sustainability.html",
-  "/certifications": "certifications.html",
-  "/clients": "clients.html",
-  "/impact": "impact.html",
-  "/investors": "investors.html",
-  "/careers": "careers.html",
-  "/news": "news.html",
-  "/contact": "contact.html",
-  "/rfq": "rfq.html",
-  "/privacy": "privacy.html",
-  "/terms": "terms.html"
-};
+// Simple router for single-page app with smooth scroll
+class Router {
+  constructor() {
+    this.currentRoute = null;
+    this.init();
+  }
 
-const meta = {
-  "/": {
-    title: "KTL — Export-Ready Apparel Manufacturer | Bangladesh",
-    description: "Bangladesh manufacturer with 12 lines and 850+ workers producing knitwear, uniforms, woven, schoolwear, sportswear for USA, Canada, UK. ISO 9001 & C-TPAT."
-  },
-  "/about": {title: "About KTL | Company Profile", description: "Company profile of Kattali Textile Ltd."},
-  "/sustainability": {title: "KTL Sustainability | People, Planet, Compliance", description: "Sustainability at KTL covering people, planet, and compliance."},
-  "/certifications": {title: "KTL Certifications | ISO 9001, C-TPAT", description: "Certifications including ISO 9001 and C-TPAT."},
-  "/clients": {title: "KTL Clients | Sectors & Case Highlights", description: "Client sectors and highlights."},
-  "/impact": {title: "KTL Impact | Case Studies & Achievements", description: "Case studies and achievements from KTL."},
-  "/investors": {title: "KTL Investors | Investor Relations", description: "Investor relations and financial highlights of KTL."},
-  "/careers": {title: "KTL Careers | Open Roles", description: "Current job openings at KTL."},
-  "/news": {title: "KTL News | Updates", description: "Latest news and updates from KTL."},
-  "/contact": {title: "Contact KTL | Chattogram, Bangladesh", description: "Contact information for KTL in Chattogram, Bangladesh."},
-  "/rfq": {title: "RFQ | KTL Commercial", description: "Request a quote from KTL."},
-  "/privacy": {title: "Privacy Policy | KTL", description: "KTL privacy policy."},
-  "/terms": {title: "Terms of Use | KTL", description: "KTL website terms of use."}
-};
+  init() {
+    // Load the home content initially
+    this.loadHomePage();
 
-async function loadView(route){
-  const file = routes[route] || routes["/"];
-  const target = document.getElementById("app");
-  target.innerHTML = '<div class="card">Loading…</div>';
-  try{
-    const res = await fetch(`./partials/${file}`, {cache: "no-cache"});
-    const html = await res.text();
-    target.innerHTML = html;
-    target.classList.remove("show");
-    setMeta(route);
-    window.scrollTo({top:0, behavior:"smooth"});
-    if (window.KTL && typeof KTL.observeReveals === "function"){
-      KTL.observeReveals();
-    }
-    if (window.KTL && typeof KTL.initView === "function"){
-      KTL.initView(route);
-    }
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        target.classList.add("show");
-      });
+    // Handle hash changes for smooth scrolling
+    window.addEventListener('hashchange', () => this.handleHashChange());
+    window.addEventListener('load', () => this.handleHashChange());
+
+    // Handle clicks on navigation links
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
+        e.preventDefault();
+        const target = e.target.getAttribute('href').substring(1);
+        this.scrollToSection(target);
+      }
     });
-  }catch(err){
-    target.innerHTML = '<div class="card">Failed to load. Please refresh.</div>';
-    console.error(err);
+  }
+
+  async loadHomePage() {
+    const app = document.getElementById('app');
+    const view = document.querySelector('.view');
+
+    try {
+      const response = await fetch('./partials/home.html');
+      if (!response.ok) throw new Error('Failed to load home page');
+
+      const html = await response.text();
+      app.innerHTML = html;
+
+      // Update page title
+      document.title = 'Kattali Textile Ltd. — Export‑Ready Apparel Manufacturing (Knitwear, Uniforms, Woven, Schoolwear, Sportswear)';
+
+      // Initialize functionality
+      if (window.KTL?.initView) {
+        window.KTL.initView('/home');
+      }
+
+      // Show the view
+      requestAnimationFrame(() => {
+        if (view) {
+          view.classList.add('show');
+          if (window.KTL?.observeReveals) {
+            window.KTL.observeReveals();
+          }
+        }
+      });
+
+    } catch (error) {
+      console.error('Error loading home page:', error);
+      app.innerHTML = '<h1>Loading Error</h1><p>The page could not be loaded.</p>';
+    }
+  }
+
+  handleHashChange() {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      this.scrollToSection(hash);
+    }
+  }
+
+  scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Close mobile menu if open
+      const nav = document.getElementById('nav');
+      if (nav && nav.classList.contains('open') && window.KTL?.toggleMenu) {
+        window.KTL.toggleMenu();
+      }
+
+      // Smooth scroll to section
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+
+      // Update URL without triggering hashchange
+      history.replaceState(null, null, `#${sectionId}`);
+    }
+  }
+
+  navigate(sectionId) {
+    this.scrollToSection(sectionId);
   }
 }
 
-function setMeta(route){
-  const m = meta[route] || meta["/"];
-  document.title = m.title;
-  let d = document.querySelector('meta[name="description"]');
-  if(!d){
-    d = document.createElement('meta');
-    d.name = 'description';
-    document.head.appendChild(d);
-  }
-  d.setAttribute('content', m.description);
-}
+// Router instance
+const router = new Router();
 
-function getRoute(){
-  const hash = location.hash || "#/";
-  const path = hash.replace(/^#/, "");
-  return routes[path] ? path : "/";
-}
-
-function onRouteChange(){
-  const route = getRoute();
-  loadView(route);
-}
-
-window.addEventListener("hashchange", onRouteChange);
-window.addEventListener("DOMContentLoaded", onRouteChange);
+// Export for global access
+window.router = router;
