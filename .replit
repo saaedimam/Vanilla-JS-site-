@@ -5,4 +5,20 @@ run = "node index.js"
 channel = "stable-25_05"
 
 [deployment]
-run = ["sh", "-c", "node index.js"]
+run = ["sh", "-c", "npx http-server -p 5000 -a 0.0.0.0"]
+
+[workflows]
+runButton = "Start Static Server"
+
+[[workflows.workflow]]
+name = "Start Static Server"
+author = 21362817
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run build"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx http-server -p 5000 -a 0.0.0.0"

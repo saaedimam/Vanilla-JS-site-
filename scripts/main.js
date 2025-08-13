@@ -5,12 +5,34 @@ document.addEventListener("DOMContentLoaded", () => {
   if (y) y.textContent = new Date().getFullYear();
 
   // Mobile nav
-  const btn = document.querySelector(".nav-toggle");
+  const menuBtn = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".site-nav");
-  if (btn && nav){
-    btn.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
+  if (menuBtn && nav){
+    menuBtn.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuBtn.textContent = isOpen ? "Close" : "Menu";
+      
+      // Close menu when clicking nav links
+      if (isOpen) {
+        nav.addEventListener("click", (e) => {
+          if (e.target.matches("a")) {
+            nav.classList.remove("open");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.textContent = "Menu";
+          }
+        });
+      }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "Menu";
+        menuBtn.focus();
+      }
     });
   }
 
