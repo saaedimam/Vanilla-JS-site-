@@ -3,15 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KTL • StitchOS — Modern Vanilla Site</title>
-  <link rel="icon" href="./favicon.png">
-  <link rel="stylesheet" href="./styles.css">
-  <!-- Built by Saaed Imam • React + Vanilla JS -->
+  <title>Kattali Textile Ltd. — Export‑Ready Apparel Manufacturing</title>
+  <meta name="description" content="KTL is a Bangladesh-based, export‑oriented manufacturer with 12 lines and 850+ workers serving USA, Canada, and UK markets. Certified ISO 9001 and C‑TPAT.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="icon" href="./assets/icons/favicon.png">
 </head>
 <body>
-  <div id="root"></div>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="./app.js"></script>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#/">
+        <span class="logo" aria-hidden="true">KTL</span>
+        <span class="brand-text">Kattali Textile Ltd.</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav id="nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/sustainability">Sustainability</a></li>
+          <li><a href="#/certifications">Certifications</a></li>
+          <li><a href="#/clients">Clients</a></li>
+          <li><a href="#/impact">Impact</a></li>
+          <li><a href="#/investors">Investors</a></li>
+          <li><a href="#/careers">Careers</a></li>
+          <li><a href="#/news">News</a></li>
+          <li><a href="#/contact">Contact</a></li>
+          <li><a class="btn btn-rfq" href="#/rfq">Request a Quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div id="app" class="view"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        Kattali Textile Ltd. · Chattogram, Bangladesh · Exports to USA, Canada, UK
+      </div>
+      <div class="footer-links">
+        <a href="#/privacy">Privacy</a>
+        <a href="#/terms">Terms</a>
+        <a href="#/contact">Contact</a>
+      </div>
+      <div class="copyright">© <span id="year"></span> KTL. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="./scripts/config.js" defer></script>
+  <script src="./scripts/api.js" defer></script>
+  <script src="./scripts/news.js" defer></script>
+  <script src="./scripts/router.js" defer></script>
+  <script src="./scripts/main.js" defer></script>
 </body>
 </html>
