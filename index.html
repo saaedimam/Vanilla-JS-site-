@@ -86,85 +86,93 @@
   <a href="#main" class="skip-link">Skip to content</a>
   
   <header class="site-header">
-    <div class="container">
+    <div class="container header-inner">
       <a class="brand" href="#home">
-        <span class="logo"></span>
+        <span class="logo">K</span>
         <span class="brand-text">Kattali Textile Ltd.</span>
       </a>
       
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#careers">Careers</a>
-        <a href="#investors">Investors</a>
-        <a href="#contact">Contact</a>
+      <nav class="site-nav desktop-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#investors">Investors</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
       
-      <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <button id="menuBtn" class="nav-toggle menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span class="hamburger"></span>
       </button>
     </div>
     
-    <nav id="mobileNav" class="mobile-nav" hidden>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#careers">Careers</a>
-      <a href="#investors">Investors</a>
-      <a href="#contact">Contact</a>
+    <nav id="mobileNav" class="site-nav mobile-nav" hidden>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#investors">Investors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
   <main id="main">
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="view">
       <div class="container">
-        <h1>Build What the World Wears</h1>
-        <p>Bangladesh-based apparel manufacturer serving global brands with reliable, compliant, and on-time production. Specializing in t-shirts, denim/jeans, and ladies tops across knit and woven categories.</p>
-        <a href="#contact" class="btn btn-primary">Get Quote</a>
+        <div class="hero">
+          <h1>Build What the World Wears</h1>
+          <p>Bangladesh-based apparel manufacturer serving global brands with reliable, compliant, and on-time production. Specializing in t-shirts, denim/jeans, and ladies tops across knit and woven categories.</p>
+          <a href="#contact" class="btn btn-primary">Get Quote</a>
+        </div>
       </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats-section bg-paper">
+    <section class="view bg-paper">
       <div class="container">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <strong>12</strong>
-            <span>Production Lines</span>
-          </div>
-          <div class="stat-card">
-            <strong>850+</strong>
-            <span>Skilled Workers</span>
-          </div>
-          <div class="stat-card">
-            <strong>North America</strong>
-            <span>Export Markets</span>
-          </div>
-          <div class="stat-card">
-            <strong>ISO 9001</strong>
-            <span>Certified</span>
+        <div class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <strong>12</strong>
+              <span>Production Lines</span>
+            </div>
+            <div class="stat-card">
+              <strong>850+</strong>
+              <span>Skilled Workers</span>
+            </div>
+            <div class="stat-card">
+              <strong>North America</strong>
+              <span>Export Markets</span>
+            </div>
+            <div class="stat-card">
+              <strong>ISO 9001</strong>
+              <span>Certified</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="view section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header text-center">
           <h2>About KTL</h2>
           <p class="section-subtitle">Leading textile manufacturer with a commitment to quality and ethics</p>
         </div>
         
         <div class="grid cols-2">
-          <div>
+          <div class="card">
             <div class="placeholder-image bg-teal"></div>
             <h3>Our Story</h3>
             <p>Kattali Textile Ltd. is a Bangladesh-based apparel manufacturer serving global brands with reliable, compliant, and on-time production. With 12 production lines and 850+ team members, we maintain ISO 9001 quality systems and CTPAT security standards.</p>
           </div>
-          <div>
+          <div class="card">
             <div class="placeholder-image bg-rose"></div>
             <h3>Technology & Innovation</h3>
             <p>We're investing in real-time production visibility through our in-house tech initiative (StitchOS/TextileTrack). This modernization includes RFID and real-time tracking to cut delays and improve target adherence.</p>
@@ -378,9 +386,9 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
+      <div class="footer-inner text-center">
         <p>© 2024 Kattali Textile Ltd. All rights reserved.</p>
-        <p class="footer-credit">Built by <strong>Saeed Imam</strong></p>
+        <p>Built by <strong>Saeed Imam</strong></p>
       </div>
     </div>
   </footer>
