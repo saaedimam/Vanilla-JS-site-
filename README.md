@@ -1,3 +1,4 @@
+
 # KTL Vanilla JS Website
 
 A professional website for Kattali Textile Ltd., showcasing our export-oriented apparel manufacturing capabilities.
@@ -12,13 +13,13 @@ A professional website for Kattali Textile Ltd., showcasing our export-oriented 
    ```bash
    npm run build
    ```
-4. **Serve** the `Vanilla-JS-site-` folder with any static server:
+4. **Serve** the project folder with any static server:
    ```bash
-   npx http-server -p 8080
+   npx http-server -p 5000 -a 0.0.0.0
    # or
-   python3 -m http.server 8080
+   python3 -m http.server 5000
    ```
-5. Visit [http://localhost:8080](http://localhost:8080).
+5. Visit [http://localhost:5000](http://localhost:5000).
 
 ## Environment Variables
 
@@ -33,22 +34,12 @@ A professional website for Kattali Textile Ltd., showcasing our export-oriented 
 ## Deployment
 
 1. Run `npm run build` to generate `scripts/config.js` with production values.
-2. Upload the directory to a static host (e.g., Netlify, Vercel, S3).
+2. Upload the directory to a static host (e.g., Replit Static Deployments).
 3. Ensure `.env` is **not** uploaded; only the generated `scripts/config.js` is served.
 
 ## Notes
 
-- Professional, accessible, responsive design meeting WCAG 2.1 AA guidelines.
-- Forms gracefully fall back to `mailto:` when endpoints are not set.
+- Accessible, responsive design meeting WCAG 2.1 AA guidelines.
+- Forms gracefully fall back to mailto: when endpoints are not set.
 - API errors are logged to the console and surfaced in the UI.
-- Built with modern web standards for optimal performance and user experience.
-
-
-
-## Credits
-
-Website developed by **Saeed Imam** for Kattali Textile Ltd.
-- Professional web development and design
-- Modern vanilla JavaScript implementation
-- Responsive and accessible user interface
-
+- Hash-based routing for single-page application experience.

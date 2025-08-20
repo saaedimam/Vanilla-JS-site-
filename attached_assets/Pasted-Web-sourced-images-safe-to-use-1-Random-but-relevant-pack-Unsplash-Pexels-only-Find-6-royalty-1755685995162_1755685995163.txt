@@ -1,0 +1,39 @@
+Web-sourced images (safe to use)
+
+1) Random-but-relevant pack (Unsplash/Pexels only)
+
+Find 6 royalty-free images related to [YOUR TOPIC]. Use Unsplash or Pexels only. Vary subject and composition (close-ups, wide shots, people/no-people). Return JSON only with fields: title, alt, direct_url, thumbnail_url, photographer, source, license. No watermarks. Prefer landscape 16:9.
+
+2) Truly random moodboard (public domain)
+
+Pick 8 random categories loosely connected to [YOUR THEME] and fetch 1 public-domain image each from Wikimedia Commons. Return Markdown: image, caption, and credit + link. Avoid NSFW and logos.
+
+3) Blog drop-in (Markdown)
+
+From this article text: [PASTE], suggest 5 supporting images (Unsplash/Pexels). Output only Markdown: ![alt](url) — _Caption_. Photo: NAME via SOURCE. One image should be a diagram/infographic you can build with text over a plain background if no good photo exists.
+
+4) Dev-friendly bundle (for scripts)
+
+Return JavaScript: const images = [{alt, url, credit, width, height, dominantColor}] for 10 images about [TOPIC] from Unsplash/Pexels. Ensure URLs are direct to the image, not a page. Width ≥ 1600.
+
+AI-generated images (when you don’t want to scrape the web)
+
+5) Style randomizer (generator-agnostic)
+
+Generate 8 images around [THEME]. Randomize palette, camera angle, lighting, and era. Mix 3 close-ups, 3 mid-shots, 2 wides. Aspect ratios: 1:1, 4:5, 16:9 (even split). Keep a cohesive mood: [mood words]. Return a 1-line caption idea for each.
+
+6) Midjourney-style
+
+/imagine [THEME], cinematic lighting, 35mm look, natural grain, candid, varied backgrounds :: add one random twist (e.g., monsoon reflections, neon market, dawn fog) — 8 variations, --ar 16:9 --style raw --chaos 35.
+
+“Random, then filter” (keeps surprise but on-brand)
+
+7) Controlled randomness
+
+Pick 12 random subjects that could relate to [BRAND/PROJECT]. Score each 0–100 for on-brand fit (style guide: [3 bullets]). Keep the top 6 and source images from Unsplash/Pexels. Return a table with subject | fit | url | alt | credit.
+
+Placeholders (when you just need something now)
+
+8) Smart placeholders
+
+Create 8 simple SVG placeholders labeled with suggested captions for [TOPIC] (e.g., “Cutting Floor – Wide Shot”). Each SVG should include a dominant color, icon, and title text. Return as inline SVG strings + alt text.

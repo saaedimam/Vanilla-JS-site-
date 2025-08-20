@@ -1,458 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kattali Textile Ltd. — Bangladesh Apparel Manufacturer (ISO 9001, CTPAT)</title>
-  <meta name="description" content="KTL is a Bangladesh-based apparel manufacturer with 12 production lines and 850+ employees, exporting knit & woven garments to North America. Careers and investor information inside.">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="assets/images/favicon.png">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Kattali Textile Ltd.",
-    "alternateName": "KTL",
-    "description": "Bangladesh-based apparel manufacturer with 12 production lines and 850+ employees, exporting knit & woven garments to North America",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Chattogram",
-      "addressCountry": "BD"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "hr@ktlbd.com",
-      "contactType": "customer service"
-    },
-    "foundingLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Chattogram",
-        "addressCountry": "BD"
-      }
-    },
-    "numberOfEmployees": "850+",
-    "industry": "Apparel Manufacturing",
-    "knowsAbout": ["Textile Manufacturing", "Apparel Production", "Export Manufacturing", "Quality Control"],
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "ISO 9001",
-        "name": "Quality Management System"
-      },
-      {
-        "@type": "EducationalOccupationalCredential", 
-        "credentialCategory": "C-TPAT",
-        "name": "Customs-Trade Partnership Against Terrorism"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Job Posting Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    "title": "Multiple Positions Available - Production, Quality, Engineering",
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": "Kattali Textile Ltd."
-    },
-    "employmentType": "FULL_TIME",
-    "industry": "Apparel Manufacturing", 
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "BD",
-        "addressLocality": "Chattogram"
-      }
-    },
-    "description": "Join KTL's team in production, quality control, industrial engineering, merchandising, HR, and IT roles. We offer training, growth opportunities, and modern RFID/tracking technology experience.",
-    "qualifications": "Various experience levels from entry to senior; specific requirements vary by department.",
-    "applicantLocationRequirements": { "@type": "Country", "name": "Bangladesh" },
-    "directApply": true,
-    "identifier": { "@type": "PropertyValue", "name": "KTL", "value": "MULTIPLE-2025" },
-    "datePosted": "2025-01-14"
-  }
-  </script>
+  <title>KTL — Export-Ready Apparel Manufacturer | Bangladesh</title>
+  <meta name="description" content="Bangladesh manufacturer with 12 lines and 850+ workers producing knitwear, uniforms, woven, schoolwear, sportswear for USA, Canada, UK. ISO 9001 & C-TPAT.">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" href="assets/icon/favicon.png">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  
+  <a href="#app" class="skip-link">Skip to main content</a>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home">
+      <a class="brand" href="#/">
         <span class="logo">K</span>
         <span class="brand-text">Kattali Textile Ltd.</span>
       </a>
-      
-      <nav class="site-nav desktop-nav" aria-label="Primary navigation">
+
+      <nav class="site-nav" aria-label="Primary navigation">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#investors">Investors</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/sustainability">Sustainability</a></li>
+          <li><a href="#/certifications">Certifications</a></li>
+          <li><a href="#/clients">Clients</a></li>
+          <li><a href="#/impact">Impact</a></li>
+          <li><a href="#/investors">Investors</a></li>
+          <li><a href="#/careers">Careers</a></li>
+          <li><a href="#/news">News</a></li>
+          <li><a href="#/contact">Contact</a></li>
+          <li><a href="#/rfq" class="btn btn-rfq">RFQ</a></li>
         </ul>
       </nav>
-      
-      <button id="menuBtn" class="nav-toggle menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span class="hamburger"></span>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        ☰
       </button>
     </div>
-    
-    <nav id="mobileNav" class="site-nav mobile-nav" hidden>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#careers">Careers</a></li>
-        <li><a href="#investors">Investors</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main id="main">
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-      <div class="hero-background">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-icon">🏭</span>
-            <span>ISO 9001 & C-TPAT Certified</span>
-          </div>
-          <h1 class="hero-title">
-            Build What the 
-            <span class="gradient-text">World Wears</span>
-          </h1>
-          <p class="hero-description">
-            Bangladesh-based apparel manufacturer serving global brands with reliable, compliant, and on-time production. Specializing in t-shirts, denim/jeans, and ladies tops across knit and woven categories.
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary btn-lg">
-              <span>Get Quote</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
-            </a>
-            <a href="#about" class="btn btn-outline btn-lg">Learn More</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <strong>850+</strong>
-              <span>Skilled Workers</span>
-            </div>
-            <div class="stat-item">
-              <strong>12</strong>
-              <span>Production Lines</span>
-            </div>
-            <div class="stat-item">
-              <strong>North America</strong>
-              <span>Export Markets</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-image-container">
-            <div class="hero-image bg-gradient-primary"></div>
-            <div class="floating-card card-1">
-              <div class="card-icon">📊</div>
-              <div>
-                <strong>Real-time Tracking</strong>
-                <p>RFID & StitchOS Technology</p>
-              </div>
-            </div>
-            <div class="floating-card card-2">
-              <div class="card-icon">🌍</div>
-              <div>
-                <strong>Global Export</strong>
-                <p>Canada & USA Markets</p>
-              </div>
-            </div>
-            <div class="floating-card card-3">
-              <div class="card-icon">✨</div>
-              <div>
-                <strong>Quality First</strong>
-                <p>ISO 9001 Certified</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="view bg-paper">
-      <div class="container">
-        <div class="stats-section">
-          <div class="stats-grid">
-            <div class="stat-card">
-              <strong>12</strong>
-              <span>Production Lines</span>
-            </div>
-            <div class="stat-card">
-              <strong>850+</strong>
-              <span>Skilled Workers</span>
-            </div>
-            <div class="stat-card">
-              <strong>North America</strong>
-              <span>Export Markets</span>
-            </div>
-            <div class="stat-card">
-              <strong>ISO 9001</strong>
-              <span>Certified</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="view section">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2>About KTL</h2>
-          <p class="section-subtitle">Leading textile manufacturer with a commitment to quality and ethics</p>
-        </div>
-        
-        <div class="grid cols-2">
-          <div class="card">
-            <div class="placeholder-image bg-teal"></div>
-            <h3>Our Story</h3>
-            <p>Kattali Textile Ltd. is a Bangladesh-based apparel manufacturer serving global brands with reliable, compliant, and on-time production. With 12 production lines and 850+ team members, we maintain ISO 9001 quality systems and CTPAT security standards.</p>
-          </div>
-          <div class="card">
-            <div class="placeholder-image bg-rose"></div>
-            <h3>Technology & Innovation</h3>
-            <p>We're investing in real-time production visibility through our in-house tech initiative (StitchOS/TextileTrack). This modernization includes RFID and real-time tracking to cut delays and improve target adherence.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section bg-paper">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our Services</h2>
-          <p class="section-subtitle">Comprehensive manufacturing solutions for global brands</p>
-        </div>
-        
-        <div class="grid cols-3">
-          <div class="card">
-            <div class="placeholder-image bg-amber"></div>
-            <h3>T-Shirts (Knit)</h3>
-            <p>High-quality knitted t-shirts with precision construction and consistent sizing across all production runs.</p>
-          </div>
-          <div class="card">
-            <div class="placeholder-image bg-teal"></div>
-            <h3>Denim & Jeans (Woven)</h3>
-            <p>Durable denim bottoms with expert construction, quality stitching, and reliable fit standards.</p>
-          </div>
-          <div class="card">
-            <div class="placeholder-image bg-rose"></div>
-            <h3>Ladies Tops (Knit & Woven)</h3>
-            <p>Versatile ladies tops across knit and woven categories with attention to detail and finishing quality.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Certifications</h2>
-          <p class="section-subtitle">Meeting international standards for quality and security</p>
-        </div>
-        
-        <div class="grid cols-2">
-          <div class="card">
-            <div class="placeholder-image bg-teal"></div>
-            <h3>ISO 9001</h3>
-            <p>Quality management system certification ensuring consistent quality in our manufacturing processes and customer satisfaction.</p>
-          </div>
-          <div class="card">
-            <div class="placeholder-image bg-amber"></div>
-            <h3>C-TPAT</h3>
-            <p>Customs-Trade Partnership Against Terrorism certification for secure supply chain management and trade compliance.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Careers Section -->
-    <section id="careers" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Build What the World Wears</h2>
-          <p class="section-subtitle">Join Kattali Textile Ltd. to grow your craft in a factory that values skill, discipline, and steady improvement</p>
-        </div>
-        
-        <div class="grid cols-2">
-          <div>
-            <div class="placeholder-image bg-teal"></div>
-            <h3>Why Work at KTL?</h3>
-            <p>From sewing lines to planning and IT, we invest in people and promote from within. Join a stable export manufacturer with North American programs.</p>
-            <ul style="margin-top: var(--space-md); color: var(--muted);">
-              <li><strong>Real Training:</strong> Dedicated Training Center for new operators and upskilling</li>
-              <li><strong>Structured Growth:</strong> Clear line-to-leader paths with IE & HR support</li>
-              <li><strong>Stable Orders:</strong> Export programs to North America</li>
-              <li><strong>Modernization:</strong> Hands-on experience with RFID and real-time tracking (StitchOS/TextileTrack)</li>
-              <li><strong>Safety & Compliance:</strong> ISO 9001, CTPAT certified workplace</li>
-            </ul>
-          </div>
-          <div>
-            <div class="placeholder-image bg-amber"></div>
-            <h3>Departments We Hire For</h3>
-            <div style="margin-top: var(--space-md);">
-              <p><strong>Production:</strong> Sewing Operators, Helpers, Line Chiefs, Supervisors, Floor In-Charge</p>
-              <p><strong>Quality:</strong> Inline QC, End-line QC, QA</p>
-              <p><strong>Industrial Engineering:</strong> IE analysts, capacity planning, SMV/time study</p>
-              <p><strong>Merchandising:</strong> Order management, docs, logistics</p>
-              <p><strong>Store & Inventory:</strong> Raw material and finished goods control</p>
-              <p><strong>HR & Training:</strong> Recruitment, training delivery, performance support</p>
-              <p><strong>IT/Systems:</strong> ERP/RFID support, dashboards, networking</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="grid cols-1" style="margin-top: var(--space-2xl);">
-          <div class="card">
-            <h3>How to Apply</h3>
-            <p>Email CV and brief cover note to <strong>hr@ktlbd.com</strong></p>
-            <p><strong>Subject line:</strong> Application – [Role] – [Your Name]</p>
-            <p><strong>Include:</strong> earliest start date, current/expected salary, location, and two references.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Investors Section -->
-    <section id="investors" class="section bg-paper">
-      <div class="container">
-        <div class="section-header">
-          <h2>Investor Relations</h2>
-          <p class="section-subtitle">Investment opportunities in sustainable apparel manufacturing with digitalization roadmap</p>
-        </div>
-        
-        <div class="grid cols-2">
-          <div>
-            <div class="placeholder-image bg-rose"></div>
-            <h3>Operating Highlights</h3>
-            <p>Kattali Textile Ltd. is a private apparel manufacturer operating 12 production lines with 850+ employees and a steady export base in Canada and the USA.</p>
-            <ul style="margin-top: var(--space-md); color: var(--muted);">
-              <li>12 active lines; knit & woven (tees, denim, ladies tops)</li>
-              <li>ISO 9001, CTPAT compliance; established export processes</li>
-              <li>IE & Planning culture; Training Center for throughput improvement</li>
-              <li>Digitalization roadmap (RFID + live dashboards via StitchOS/TextileTrack)</li>
-              <li>Ethical hiring and worker training programs</li>
-            </ul>
-          </div>
-          <div>
-            <div class="placeholder-image bg-teal"></div>
-            <h3>Governance & Information</h3>
-            <p>We maintain comprehensive compliance and are prepared to share detailed operational and financial information under appropriate NDAs.</p>
-            <div class="contact-info" style="margin-top: var(--space-md);">
-              <p><strong>Governance:</strong> Private company; board-led oversight</p>
-              <p><strong>Available under NDA:</strong> Financial statements (3 years), capacity analysis, compliance certificates, order history</p>
-              <p><strong>Contact:</strong> Use contact form below or hr@ktlbd.com for triage to management</p>
-            </div>
-          </div>
-        </div>
-        
-        <div style="margin-top: var(--space-2xl); padding: var(--space-md); background: #f1f5f9; border-radius: var(--radius); font-size: var(--text-sm); color: var(--muted);">
-          <p><strong>Safe Harbor Disclaimer:</strong> Information on this page may include forward-looking statements based on current assumptions and is subject to risks and uncertainties. Actual results may differ. Kattali Textile Ltd. undertakes no obligation to update forward-looking statements except as required by law.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sustainability Section -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Sustainability & Responsibility</h2>
-          <p class="section-subtitle">Building dependable products with practical sustainability approach</p>
-        </div>
-        
-        <div class="grid cols-2">
-          <div>
-            <div class="placeholder-image bg-teal"></div>
-            <h3>Our Approach</h3>
-            <p>We build dependable products with a practical approach to sustainability: quality systems (ISO 9001), supply-chain security (CTPAT), operator training, and continuous improvement.</p>
-          </div>
-          <div>
-            <div class="placeholder-image bg-amber"></div>
-            <h3>Modernization Benefits</h3>
-            <p>As we modernize with StitchOS/TextileTrack, we're reducing rework, preventing over-production, and improving energy and material efficiency line by line.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-paper">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact Us</h2>
-          <p class="section-subtitle">Get in touch for your textile manufacturing needs</p>
-        </div>
-        
-        <div class="grid cols-2">
-          <div>
-            <h3>Get in Touch</h3>
-            <p>Ready to discuss your textile manufacturing requirements? Our team is here to help you with quality solutions and reliable delivery.</p>
-            <div class="contact-info">
-              <p><strong>Email:</strong> hr@ktlbd.com</p>
-              <p><strong>Location:</strong> Chattogram, Bangladesh</p>
-              <p><strong>Markets:</strong> Canada & USA</p>
-              <p><strong>Specialties:</strong> T-shirts, Denim/Jeans, Ladies Tops</p>
-            </div>
-          </div>
-          <div>
-            <form id="contact-form" class="form">
-              <h4>Request Quote</h4>
-              <label for="name">Name *</label>
-              <input type="text" id="name" name="name" required>
-              
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required>
-              
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company">
-              
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-              
-              <button type="submit" class="btn btn-primary">Send Message</button>
-              <div class="status"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main id="app" class="view">
+    <div class="card">Loading…</div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner text-center">
-        <p>© 2024 Kattali Textile Ltd. All rights reserved.</p>
-        <p>Built by <strong>Saeed Imam</strong></p>
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="#/privacy">Privacy Policy</a>
+        <a href="#/terms">Terms of Use</a>
       </div>
+      <p>© <span id="year">2024</span> Kattali Textile Ltd. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script defer src="scripts/config.js"></script>
+  <script defer src="scripts/api.js"></script>
+  <script defer src="scripts/news.js"></script>
+  <script defer src="scripts/router.js"></script>
+  <script defer src="scripts/main.js"></script>
 </body>
 </html>
