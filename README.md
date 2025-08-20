@@ -1,6 +1,6 @@
-# KTL StitchOS Vanilla JS Site
+# KTL StitchOS React Site
 
-Built by Saaed Imam.
+Built by Saaed Imam using React 18 served via CDN.
 
 ## Setup
 
@@ -16,8 +16,8 @@ Then open the reported URL in your browser.
 
 ## Structure
 
-- `index.html` – markup with responsive navigation and placeholder sections
+- `index.html` – root container loading React and app bundle
 - `styles.css` – site styles and color placeholders
-- `main.js` – mobile menu toggle and dynamic footer year
+- `app.js` – React components rendering the interface and handling nav toggle
 - `assets/images/` – drop future images here
 - `favicon.png` – site icon

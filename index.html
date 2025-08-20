@@ -6,78 +6,12 @@
   <title>KTL • StitchOS — Modern Vanilla Site</title>
   <link rel="icon" href="./favicon.png">
   <link rel="stylesheet" href="./styles.css">
-  <!-- Built by Saaed Imam • Vanilla JS -->
+  <!-- Built by Saaed Imam • React + Vanilla JS -->
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="./">
-        <img src="./favicon.png" alt="Brand" class="brand-mark">
-        <span class="brand-name">Kattali Textile Ltd</span>
-      </a>
-
-      <!-- Desktop nav -->
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <!-- Icon-only menu button -->
-      <button id="menuBtn"
-              class="icon-btn"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileNav">
-        <!-- Hamburger icon (pure HTML/CSS) -->
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-    </div>
-
-    <!-- Mobile panel -->
-    <nav id="mobileNav" class="mobile-nav" hidden aria-label="Mobile">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#contact" class="btn btn-accent">Get Quote</a>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>Colorful, stylish, modern. <span class="badge">Vanilla JS</span></h1>
-      <p>Fast, accessible, and easy to maintain—built by Saaed Imam.</p>
-      <a class="btn btn-primary" href="#work">See Work</a>
-    </div>
-  </section>
-
-  <!-- Image cards with colorful background placeholders -->
-  <section class="section">
-    <div class="container grid">
-      <figure class="card img-cover bg-rose">
-        <figcaption>Factory Floor (add image later)</figcaption>
-      </figure>
-      <figure class="card img-cover bg-teal">
-        <figcaption>Quality Control (add image later)</figcaption>
-      </figure>
-      <figure class="card img-cover bg-amber">
-        <figcaption>Product Collage (add image later)</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> KTL • StitchOS — Built by Saaed Imam</p>
-    </div>
-  </footer>
-
-  <script src="./main.js"></script>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="./app.js"></script>
 </body>
 </html>
