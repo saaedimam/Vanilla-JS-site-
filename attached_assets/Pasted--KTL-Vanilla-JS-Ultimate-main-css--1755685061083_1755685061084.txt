@@ -1,0 +1,330 @@
+/* =========================================================
+   KTL Vanilla JS — Ultimate main.css
+   Mobile-first • Accessible • Performant (GPU transforms)
+   ========================================================= */
+
+/* -----------------------------
+   0) THEME TOKENS & BASE RESET
+   ----------------------------- */
+:root{
+  /* Brand */
+  --brand:#8B0000;           /* deep red */
+  --accent:#0EA5A5;          /* soft teal */
+  --accent-2:#7C3AED;        /* violet pop */
+  --ok:#16a34a;              /* green */
+  --warn:#f59e0b;            /* amber */
+  --err:#dc2626;             /* red */
+
+  /* Neutrals */
+  --text:#222;
+  --muted:#666;
+  --muted-2:#9aa0a6;
+  --bg:#ffffff;
+  --paper:#f7f7f7;
+  --border:#e6e6e6;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
+
+  /* Typography */
+  --ff: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --fs-1: clamp(28px, 6vw, 44px);
+  --fs-2: clamp(22px, 4.5vw, 32px);
+  --fs-3: 20px;
+  --fs-4: 17px;
+  --fs-5: 14px;
+  --lh: 1.55;
+
+  /* Radii / Sizing */
+  --radius: 14px;
+  --radius-lg: 22px;
+  --maxw: 1100px;
+  --container-px: 16px;
+
+  /* Motion (overridden for reduce) */
+  --dur-micro: 150ms;
+  --dur-std: 240ms;
+  --dur-enter: 420ms;
+  --dur-slow: 700ms;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+
+  /* Z layers */
+  --z-sticky: 20;
+  --z-modal: 40;
+  --z-toast: 50;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark){
+  :root{
+    --text:#e7e7e7;
+    --muted:#a1a1a1;
+    --bg:#0f0f10;
+    --paper:#151517;
+    --border:#232327;
+    --shadow: 0 2px 18px rgba(0,0,0,.45);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  :root{
+    --dur-micro: 1ms;
+    --dur-std: 1ms;
+    --dur-enter: 1ms;
+    --dur-slow: 1ms;
+  }
+}
+
+/* Base reset */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--ff);line-height:var(--lh)}
+img,svg,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.visually-hidden,.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Layout helpers */
+.container{max-width:var(--maxw);margin-inline:auto;padding:0 var(--container-px)}
+.view{padding:28px 0}
+
+/* -----------------------------
+   1) HEADER / NAV
+   ----------------------------- */
+.site-header{position:sticky;top:0;z-index:var(--z-sticky);border-bottom:1px solid var(--border);background:color-mix(in oklab, var(--bg) 88%, transparent)}
+.header-inner{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;box-shadow:var(--shadow);transform:translateZ(0)}
+.brand-text{white-space:nowrap}
+.nav-toggle{margin-left:auto;font-size:20px;background:none;border:1px solid var(--border);border-radius:10px;padding:6px 10px;display:none}
+.site-nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.site-nav a{padding:8px 10px;border-radius:10px}
+.site-nav a:hover,.site-nav a:focus-visible{background:color-mix(in oklab, var(--paper) 80%, transparent);transition:background var(--dur-micro) var(--ease)}
+.site-nav .active{background:color-mix(in oklab, var(--accent) 15%, transparent)}
+
+/* -----------------------------
+   2) GRID & UTILITIES
+   ----------------------------- */
+.grid{display:grid;gap:16px}
+.grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.flex{display:flex}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-8{gap:8px}.gap-12{gap:12px}.gap-16{gap:16px}
+.p-8{padding:8px}.p-12{padding:12px}.p-16{padding:16px}.p-24{padding:24px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-24{margin-top:24px}
+.round{border-radius:var(--radius)}.round-lg{border-radius:var(--radius-lg)}
+.text-center{text-align:center}
+.badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:color-mix(in oklab, var(--accent) 18%, transparent);border:1px solid var(--border);font-size:var(--fs-5)}
+.k-shadow{box-shadow:var(--shadow)}
+
+/* -----------------------------
+   3) HERO, STATS, CARDS
+   ----------------------------- */
+.hero{display:grid;gap:18px;padding:28px;background:var(--paper);border-radius:var(--radius-lg);box-shadow:var(--shadow)}
+.hero h1{margin:0;font-size:var(--fs-1);letter-spacing:-.01em}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.stat{padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+
+.card{border:1px solid var(--border);border-radius:16px;padding:16px;background:var(--bg);box-shadow:var(--shadow);transition:transform var(--dur-std) var(--ease),box-shadow var(--dur-std) var(--ease);will-change:transform,box-shadow}
+.card:hover,.card:focus-within{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,.12)}
+.card.is-pressing{transform:scale(.98)}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.card-ghost{background:transparent;backdrop-filter:saturate(140%) blur(6px);border:1px dashed var(--border)}
+
+/* Ribbons */
+.ribbon{position:relative;overflow:hidden}
+.ribbon::after{content:attr(data-ribbon);position:absolute;top:10px;right:-40px;transform:rotate(35deg);background:var(--accent);color:#fff;padding:4px 50px;font-size:12px;letter-spacing:.5px}
+
+/* -----------------------------
+   4) BUTTONS
+   ----------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--text);padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform var(--dur-micro) var(--ease),box-shadow var(--dur-micro) var(--ease),background var(--dur-micro) var(--ease);will-change:transform,box-shadow}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.btn:active{transform:scale(.98)}
+
+.btn-primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#072a2a}
+.btn-ghost{background:transparent;border-color:var(--text)}
+.btn-outline{background:transparent;border-color:var(--border)}
+.btn-link{border:0;padding:0;border-radius:6px}
+.btn-success{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn-warn{background:var(--warn);border-color:var(--warn);color:#111}
+.btn-danger{background:var(--err);border-color:var(--err);color:#fff}
+.btn-sm{padding:6px 10px;font-size:var(--fs-5)}
+.btn-lg{padding:14px 20px;font-size:var(--fs-3);border-radius:16px}
+.btn-icon{width:40px;height:40px;padding:0}
+
+/* Ripple (JS can add .rippled) */
+.btn.rippled{position:relative;overflow:hidden}
+.btn.rippled::after{content:"";position:absolute;inset:auto;top:var(--r-y,50%);left:var(--r-x,50%);width:6px;height:6px;background:rgba(255,255,255,.6);border-radius:50%;transform:translate(-50%,-50%) scale(1);animation:ripple var(--dur-slow) var(--ease-out)}
+@keyframes ripple{to{opacity:0;transform:translate(-50%,-50%) scale(45)}}
+
+/* -----------------------------
+   5) FORMS
+   ----------------------------- */
+.form{display:grid;gap:12px;max-width:720px}
+.form label{font-weight:600}
+.form input,.form select,.form textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--text);transition:border var(--dur-micro) var(--ease), box-shadow var(--dur-micro) var(--ease)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 15%, transparent)}
+.form .hint{color:var(--muted);font-size:var(--fs-5)}
+.input-inline{display:flex;gap:8px;align-items:center}
+
+/* -----------------------------
+   6) TABLES / LISTS
+   ----------------------------- */
+.table{width:100%;border-collapse:separate;border-spacing:0 8px}
+.table thead th{font-size:var(--fs-5);color:var(--muted);text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.table tbody tr{background:var(--bg);box-shadow:var(--shadow)}
+.table tbody td{padding:12px 14px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.table tbody tr:first-child td{border-top-left-radius:12px;border-top-right-radius:12px}
+.table tbody tr:last-child td{border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+
+.news-list{list-style:none;margin:0;padding:0}
+.news-list li{padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--bg);box-shadow:var(--shadow);transition:transform var(--dur-micro) var(--ease)}
+.news-list li:hover{transform:translateX(4px)}
+
+/* -----------------------------
+   7) MODALS & TOASTS
+   ----------------------------- */
+/* Modal shell (toggle .open on .modal + .modal-backdrop) */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity var(--dur-enter) var(--ease);z-index:var(--z-modal)}
+.modal{position:fixed;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;z-index:var(--z-modal)}
+.modal .panel{width:min(680px,92vw);background:var(--bg);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);transform:translateY(12px) scale(.98);transition:transform var(--dur-enter) var(--ease),opacity var(--dur-enter) var(--ease)}
+.modal.open,.modal-backdrop.open{opacity:1;pointer-events:auto}
+.modal.open .panel{transform:translateY(0) scale(1)}
+
+/* Toasts (positioned via container) */
+.toast-container{position:fixed;right:18px;bottom:18px;display:grid;gap:10px;z-index:var(--z-toast)}
+.toast{padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--border);box-shadow:var(--shadow);animation:slide-up var(--dur-enter) var(--ease)}
+.toast.ok{border-color:color-mix(in oklab, var(--ok) 40%, var(--border))}
+.toast.err{border-color:color-mix(in oklab, var(--err) 40%, var(--border))}
+
+/* -----------------------------
+   8) TABS, ACCORDION, TOOLTIP
+   ----------------------------- */
+/* Tabs (data attributes) */
+.tabs{display:grid;gap:12px}
+.tabs [role="tablist"]{display:flex;gap:8px;flex-wrap:wrap}
+.tab{padding:8px 12px;border:1px solid var(--border);border-radius:999px;cursor:pointer}
+.tab[aria-selected="true"]{background:color-mix(in oklab, var(--accent) 22%, transparent)}
+.tab-panel{display:none}
+.tab-panel[aria-hidden="false"]{display:block;animation:fade-in var(--dur-enter) var(--ease)}
+
+/* Accordion (details/summary) */
+.accordion details{border:1px solid var(--border);border-radius:12px;background:var(--bg);box-shadow:var(--shadow);padding:10px}
+.accordion summary{font-weight:600;cursor:pointer;list-style:none}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion details[open] .content{animation:slide-down var(--dur-enter) var(--ease)}
+
+/* Tooltip (attribute-based) */
+[data-tooltip]{position:relative}
+[data-tooltip]::after{
+  content:attr(data-tooltip);
+  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) scale(.98);
+  background:var(--text);color:#fff;padding:6px 8px;border-radius:8px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity var(--dur-std) var(--ease), transform var(--dur-std) var(--ease);
+}
+[data-tooltip]:hover::after,[data-tooltip]:focus-visible::after{opacity:1;transform:translateX(-50%) scale(1)}
+
+/* -----------------------------
+   9) ANIMATIONS & REVEALS
+   ----------------------------- */
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes slide-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slide-down{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slide-left{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.02)}}
+@keyframes shimmer{to{background-position:200% 0}}
+
+.view{opacity:0;transform:translateY(12px);transition:opacity var(--dur-enter) var(--ease), transform var(--dur-enter) var(--ease)}
+.view.show{opacity:1;transform:translateY(0)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity var(--dur-enter) var(--ease), transform var(--dur-enter) var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.spin{animation:spin 1.2s linear infinite}
+.pulse{animation:pulse 1.8s var(--ease) infinite}
+
+/* Parallax utility (JS sets --parallax-y on scroll) */
+.parallax{will-change:transform;transform:translateY(var(--parallax-y, 0px));transition:transform var(--dur-std) var(--ease)}
+
+/* -----------------------------
+   10) MEDIA, GALLERIES, FIGURES
+   ----------------------------- */
+.figure{display:grid;gap:8px}
+.figure img{border-radius:12px;box-shadow:var(--shadow)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.gallery img{aspect-ratio:4/3;object-fit:cover;border-radius:12px;transition:transform var(--dur-std) var(--ease)}
+.gallery img:hover{transform:scale(1.03)}
+
+/* -----------------------------
+   11) QUALITY: TIMELINE, STEPS
+   ----------------------------- */
+.timeline{position:relative;margin:0;padding:0;list-style:none}
+.timeline::before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline li{position:relative;padding-left:44px;margin:14px 0}
+.timeline li::before{content:"";position:absolute;left:10px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent)}
+
+.steps{display:grid;gap:12px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .num{min-width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
+
+/* -----------------------------
+   12) PROGRESS, SKELETONS
+   ----------------------------- */
+.progress{height:10px;background:var(--paper);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress > .bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width var(--dur-slow) var(--ease)}
+
+.skeleton{position:relative;overflow:hidden;background:linear-gradient(90deg, color-mix(in oklab, var(--paper) 80%, transparent) 25%, color-mix(in oklab, var(--paper) 60%, transparent) 50%, color-mix(in oklab, var(--paper) 80%, transparent) 75%);background-size:200% 100%;animation:shimmer 1.4s linear infinite;border-radius:12px}
+
+/* -----------------------------
+   13) BREADCRUMBS & PAGINATION
+   ----------------------------- */
+.breadcrumbs{display:flex;gap:8px;flex-wrap:wrap;font-size:var(--fs-5);color:var(--muted)}
+.breadcrumbs a{padding:4px 8px;border-radius:8px}
+.breadcrumbs a:hover{background:color-mix(in oklab, var(--paper) 85%, transparent)}
+
+.pagination{display:flex;gap:6px;align-items:center}
+.page{padding:6px 10px;border:1px solid var(--border);border-radius:10px}
+.page.active{background:color-mix(in oklab, var(--accent) 20%, transparent)}
+
+/* -----------------------------
+   14) INVESTORS WIDGET TWEAKS
+   ----------------------------- */
+.quote{display:grid;gap:12px}
+.quote .price{font-size:var(--fs-2);font-weight:800}
+.price.up{color:var(--ok)}.price.down{color:var(--err)}
+.spark{display:flex;align-items:center;justify-content:center}
+
+/* -----------------------------
+   15) FOOTER
+   ----------------------------- */
+.site-footer{border-top:1px solid var(--border);background:var(--paper);margin-top:32px}
+.footer-inner{display:grid;gap:10px;align-items:center;padding:18px}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap}
+
+/* -----------------------------
+   16) RESPONSIVE NAV (<=880px)
+   ----------------------------- */
+@media (max-width: 880px){
+  .nav-toggle{display:block}
+  .site-nav{display:none;width:100%}
+  .site-nav.open{display:block}
+  .site-nav ul{flex-direction:column;gap:0}
+  .site-nav a{padding:12px;border-radius:0}
+}
+
+/* -----------------------------
+   17) PRINT
+   ----------------------------- */
+@media print{
+  .site-header,.site-footer,.btn,.toast-container,.modal{display:none!important}
+  .card,.hero{box-shadow:none;border:1px solid #bbb}
+}
+
+/* -----------------------------
+   18) LEGACY SUPPORT HOOKS
+   ----------------------------- */
+.btn-rfq{background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn-rfq:hover,.btn-rfq:focus-visible{box-shadow:0 2px 12px rgba(0,0,0,.12)}
