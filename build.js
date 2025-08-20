@@ -2,20 +2,23 @@ const fs = require('fs');
 const path = require('path');
 
 function parseEnv(src){
-  const lines = src.split(/\r?\n/);
   const env = {};
-  for(const line of lines){
-    const match = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
-    if(match){
-      env[match[1]] = match[2];
-    }
-  }
+  src.split(/\r?\n/).forEach(line => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) return;
+    const idx = trimmed.indexOf('=');
+    if (idx === -1) return;
+    const key = trimmed.slice(0, idx).trim();
+    let val = trimmed.slice(idx + 1).trim();
+    val = val.replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
+    env[key] = val;
+  });
   return env;
 }
 
 let env = {};
-if(fs.existsSync('.env')){
-  env = parseEnv(fs.readFileSync('.env','utf8'));
+if (fs.existsSync('.env')) {
+  env = parseEnv(fs.readFileSync('.env', 'utf8'));
 }
 
 const config = {
