@@ -1,0 +1,11 @@
+name: On CI failure, open issue
+on: workflow_run
+jobs:
+  fileissue:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jayqi/failed-build-issue-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reopen_closed: true
