@@ -1,0 +1,7 @@
+# env
+.env
+# logs
+*.log
+# mac / editor
+.DS_Store
+.vscode/

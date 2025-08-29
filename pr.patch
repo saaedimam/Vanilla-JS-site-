@@ -1,0 +1,221 @@
+*** Begin Patch
+*** Add File: .editorconfig
++root = true
++[*]
++end_of_line = lf
++insert_final_newline = true
++charset = utf-8
++indent_style = space
++indent_size = 2
++
+*** End Patch
+*** Begin Patch
+*** Add File: .gitattributes
++* text=auto eol=lf
++
+*** End Patch
+*** Begin Patch
+*** Add File: .gitignore
++# env
++.env
++
++# logs
++*.log
++
++# OS / editors
++.DS_Store
++.vscode/
++
+*** End Patch
+*** Begin Patch
+*** Add File: .github/workflows/lint.yml
++name: Lint
++on: [push, pull_request]
++jobs:
++  superlinter:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - name: Super Linter
++        uses: github/super-linter@v6
++        env:
++          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++          DEFAULT_BRANCH: main
++          VALIDATE_ALL_CODEBASE: true
++          # Skip large static folders if needed; adjust as appropriate
++          FILTER_REGEX_EXCLUDE: "attached_assets/.*|assets/.*"
++
+*** End Patch
+*** Begin Patch
+*** Add File: .github/workflows/codeql.yml
++name: CodeQL
++on:
++  push: { branches: [ main ] }
++  pull_request: { branches: [ main ] }
++  schedule:
++    - cron: "0 3 * * 1"
++jobs:
++  analyze:
++    runs-on: ubuntu-latest
++    permissions:
++      actions: read
++      contents: read
++      security-events: write
++    strategy:
++      fail-fast: false
++      matrix:
++        language: [ 'javascript' ]
++    steps:
++      - uses: actions/checkout@v4
++      - uses: github/codeql-action/init@v3
++        with:
++          languages: ${{ matrix.language }}
++      - uses: github/codeql-action/analyze@v3
++
+*** End Patch
+*** Begin Patch
+*** Add File: .github/workflows/gitleaks.yml
++name: Gitleaks
++on: [push, pull_request]
++jobs:
++  scan:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++        with:
++          fetch-depth: 0  # scan history
++      - uses: gitleaks/gitleaks-action@v2
++        env:
++          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++
+*** End Patch
+*** Begin Patch
+*** Add File: .github/workflows/links.yml
++name: Link check
++on:
++  schedule: [ { cron: "15 2 * * 1" } ] # weekly
++  workflow_dispatch:
++jobs:
++  lychee:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - name: Check links
++        id: lychee
++        uses: lycheeverse/lychee-action@v2
++        with:
++          args: --verbose --no-progress --exclude-mail './**/*.md' './**/*.html'
++      - name: Create issue on failure
++        if: failure()
++        uses: peter-evans/create-issue-from-file@v5
++        with:
++          title: "Broken links detected"
++          content-filepath: ./lychee/out.md
++          labels: docs, broken-link
++
+*** End Patch
+*** Begin Patch
+*** Add File: .github/workflows/failed-build-issue.yml
++name: On CI failure, open issue
++on: workflow_run
++jobs:
++  fileissue:
++    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
++    runs-on: ubuntu-latest
++    steps:
++      - uses: jayqi/failed-build-issue-action@v2
++        with:
++          github_token: ${{ secrets.GITHUB_TOKEN }}
++          reopen_closed: true
++
+*** End Patch
+*** Begin Patch
+*** Add File: robots.txt
++User-agent: *
++Allow: /
++
++Sitemap: https://vanilla-js-site-henna.vercel.app/sitemap.xml
++
+*** End Patch
+*** Begin Patch
+*** Add File: sitemap.xml
++<?xml version="1.0" encoding="UTF-8"?>
++<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
++  <url><loc>https://vanilla-js-site-henna.vercel.app/</loc></url>
++  <url><loc>https://vanilla-js-site-henna.vercel.app/#about</loc></url>
++  <url><loc>https://vanilla-js-site-henna.vercel.app/#services</loc></url>
++  <url><loc>https://vanilla-js-site-henna.vercel.app/#certifications</loc></url>
++  <url><loc>https://vanilla-js-site-henna.vercel.app/#careers</loc></url>
++  <url><loc>https://vanilla-js-site-henna.vercel.app/#investors</loc></url>
++  <url><loc>https://vanilla-js-site-henna.vercel.app/#contact</loc></url>
++</urlset>
++
+*** End Patch
+*** Begin Patch
+*** Add File: 404.html
++<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="utf-8" />
++    <meta name="viewport" content="width=device-width,initial-scale=1" />
++    <title>Page Not Found</title>
++    <style>
++      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;margin:0;display:grid;place-items:center;height:100vh}
++      main{max-width:720px;padding:24px;text-align:center}
++      a{color:inherit}
++    </style>
++  </head>
++  <body>
++    <main>
++      <h1>404 — Not Found</h1>
++      <p>The page you requested doesn’t exist. <a href="/">Go home</a>.</p>
++    </main>
++  </body>
++  </html>
++
+*** End Patch
+*** Begin Patch
+*** Add File: assets/favicon.svg
++<?xml version="1.0" encoding="UTF-8"?>
++<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
++  <defs>
++    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
++      <stop offset="0" stop-color="#e11a2b"/>
++      <stop offset="1" stop-color="#1C6FE3"/>
++    </linearGradient>
++  </defs>
++  <rect width="32" height="32" rx="6" fill="url(#g)"/>
++  <path d="M8 10h16v2H8zm0 5h12v2H8zm0 5h8v2H8z" fill="#fff"/>
++</svg>
++
+*** End Patch
+*** Begin Patch
+*** Update File: index.html
+@@
+-<head>
++<head>
++  <!-- SEO & Social -->
++  <meta name="description" content="Kattali Textile Ltd. – Bangladesh apparel manufacturer (ISO 9001, CTPAT). T-shirts, denim/jeans, ladies tops.">
++  <link rel="icon" href="/assets/favicon.svg">
++  <meta property="og:title" content="Kattali Textile Ltd.">
++  <meta property="og:description" content="Bangladesh apparel manufacturer serving global brands with reliable, compliant production.">
++  <meta property="og:type" content="website">
++  <meta property="og:url" content="https://vanilla-js-site-henna.vercel.app/">
++  <meta property="og:image" content="https://vanilla-js-site-henna.vercel.app/assets/og.jpg">
++  <meta name="twitter:card" content="summary_large_image">
++  <!-- A11y & performance nudges -->
++  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++  <link rel="preconnect" href="https://fonts.googleapis.com">
+*** End Patch
+*** Begin Patch
+*** Delete File: README.txt
+*** End Patch
+*** Begin Patch
+*** Update File: .env.example
+@@
+-# Example env file
++# Example env file
++# Do NOT put secrets here for production deploys.
++# Use public endpoints only (e.g., form handlers). Private keys should live on the server or CI secrets.
+ 
+*** End Patch
