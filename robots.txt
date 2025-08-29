@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanilla-js-site-henna.vercel.app/sitemap.xml
